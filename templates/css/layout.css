@@ -1,0 +1,79 @@
+/*
+   layout.css
+   proportio
+   
+   Created by gaspard on 2010-12-06.
+   Copyright freelancis. All rights reserved.
+*/
+
+#b{
+	display:none;
+	z-index:1;
+	position:absolute;
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-position:fixed;
+	overflow:hidden;
+}
+
+#page{
+	z-index:2;
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+
+/*menu elements*/
+
+#page #menu h1{
+	width:130px;
+	height:35px;
+	margin:0;
+	padding:10px 0 0 10px;
+	float:left;
+}
+#page #menu h1 a span{
+	display:none;
+}
+#page #menu ul{
+	margin:0;
+	padding:23px 0 0 0;
+	float:left;
+	width:400px;
+	
+}
+#page #menu ul li{
+	display:inline;
+	list-style-type:none;
+}
+
+/* content*/
+
+#page #container{
+	margin-left:66%;
+	width:33%;
+}
+#page #container #content{
+	bottom:0px;
+	max-width:320px;/*
+		TODO use hack here
+	*/
+}
+#page #container #content .inner{
+	padding:30px;
+}
+#pola{
+	position:absolute;
+	display:none;
+}

@@ -1,0 +1,19 @@
+/*
+   typo.css
+   proportio
+   
+   Created by gaspard on 2010-12-06.
+   Copyright freelancis. All rights reserved.
+*/
+
+#page #menu ul, #page #menu ul a{
+	font: normal normal normal 9pt Helvetica, Arial, sans-serif;
+	color:#fff;
+	text-decoration:none;
+}
+
+#page #content{
+	font: normal normal normal 12pt Helvetica, Arial, sans-serif;
+	color:#fff;
+	line-height:1.2em;
+}

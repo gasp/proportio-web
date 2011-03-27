@@ -7,13 +7,16 @@
 */
 
 #page #menu ul, #page #menu ul a{
-	font: normal normal normal 9pt Helvetica, Arial, sans-serif;
+	font: normal normal normal 10pt Helvetica, Arial, sans-serif;
 	color:#fff;
 	text-decoration:none;
 }
+#page #menu ul a:hover{
+	text-shadow: 0 1px #999;
+}
 
 #page #content{
-	font: normal normal normal 12pt Helvetica, Arial, sans-serif;
+	font: normal normal normal 10pt Helvetica, Arial, sans-serif;
 	color:#fff;
 	line-height:1.2em;
 }

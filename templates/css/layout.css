@@ -50,7 +50,7 @@
 	margin:0;
 	padding:23px 0 0 0;
 	float:left;
-	width:400px;
+	width:450px;
 	
 }
 #page #menu ul li{
@@ -61,10 +61,21 @@
 /* content*/
 
 #page #container{
-	margin-left:66%;
+	margin-left:67%;
 	width:33%;
+	display:block;
+	position:relative;
+	height:100%;
+}
+#page #container #under{
+	position:absolute;
+	background-color:#000;
+	width:100%;
+	height:100%;
+	opacity:.3;
 }
 #page #container #content{
+	position:absolute;
 	bottom:0px;
 	max-width:320px;/*
 		TODO use hack here
@@ -72,8 +83,4 @@
 }
 #page #container #content .inner{
 	padding:30px;
-}
-#pola{
-	position:absolute;
-	display:none;
 }

@@ -16,36 +16,37 @@
 <body>
 
 
-	<div id="page" class="home">
-		<div id="menu">
-			<h1><a href="#URL_RUBRIQUE{#ID_SECTEUR}"><span>proportio</span><img alt="proportio"[ src="(#CHEMIN{img/proportio.png})"]></a></h1>
+<div id="page" class="home">
+	<div id="menu">
+		<h1><a href="#URL_RUBRIQUE{#ID_SECTEUR}"><span>proportio</span><img alt="proportio"[ src="(#CHEMIN{img/proportio.png})"]></a></h1>
 
-			<ul>
-				<BOUCLE_mainnav(RUBRIQUES){id_parent=#ID_SECTEUR}{'<span>|</span>'}>
-				<li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>#TITRE</a></li>
-				</BOUCLE_mainnav>
-			</ul>
-		</div>
+		<ul>
+			<BOUCLE_mainnav(RUBRIQUES){id_parent=#ID_SECTEUR}{'<span>|</span>'}>
+			<li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>#TITRE</a></li>
+			</BOUCLE_mainnav>
+		</ul>
+	</div>
+	
 [
-		<div class="container">
-			<div class="content">
-				<div class="inner">
-					(#TEXTE)
-				</div>
+	<div class="container">
+		<div class="content">
+			<div class="inner">
+				(#TEXTE)
 			</div>
 		</div>
-]
-		<!--
-		<div id="pola" style="top: 86px; left: 140px; display: block;">
-			<a href="item001.html"><img alt="pola" src="iconography/pola_experience.jpg" /></a>
-		</div>
-		-->
-		<div id="bullet">&bull;</div>
-		<div id="nav">
-		<!--	<div class="left"><a href="sth.html">previous</a></div>-->
-		<!--	<div class="right"><a href="xpss2011a.html">next</a></div>-->
-		</div>
 	</div>
+]
+	<!--
+	<div id="pola" style="top: 86px; left: 140px; display: block;">
+		<a href="item001.html"><img alt="pola" src="iconography/pola_experience.jpg" /></a>
+	</div>
+	-->
+	<div id="bullet">&bull;</div>
+	<div id="nav">
+	<!--	<div class="left"><a href="sth.html">previous</a></div>-->
+	<!--	<div class="right"><a href="xpss2011a.html">next</a></div>-->
+	</div>
+</div>
 
 
 

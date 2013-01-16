@@ -64,19 +64,19 @@ html, body {width:100%; height:100%;margin:0;padding:0;}
 
 /* content*/
 
-#page #container{
+#page .container{
 	margin-left:66.1%;
 	width:34%;
 	background: transparent url(../img/pix50.png) repeat scroll top left;
 	height:100%;
 }
-#page #container #content{
+#page .container .content{
 	bottom:0px;
 	max-width:320px;/*
 		TODO use hack here
 	*/
 }
-#page #container #content .inner{
+#page .container .content .inner{
 	padding:30px;
 	color:#fff;
 }

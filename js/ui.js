@@ -24,7 +24,7 @@ var proportio={
 		this.display.landscape = (this.display.w*3>this.display.h*4);
 
 		//place bottom text
-		$('#content').css({paddingTop:(this.display.h-$('#content').height()-30)});
+		$('.content').css({paddingTop:(this.display.h-$('.content').height()-30)});
 
 		// place pola if there is one
 		l = (this.display.w)/3-160;

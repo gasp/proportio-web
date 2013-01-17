@@ -4,134 +4,111 @@
 	top: 0;
 	left: 0;
 	right: 0;
-	bottom: 150px;
-}
-
-/* footer */
-.footer {
-	position: absolute;
 	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 150px;
-	background: #ddd;
+
+	width: 100%;
+	height: 100%;
+
+	background: url(../_img/container-bg.jpg) repeat 50% 0;
 }
 
-/* toggle */
-.toggle {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	width: 80px;
-	height: 80px;
-	border: 2px solid #000;
-	z-index: 2;
-	background: #fff;
-}
 
-/* slider 1 */
-.main .slider1Container {
-	position: absolute;
-	top: 0;
-	bottom: 150px;
-	left: 0;
-	right: 0;
-}
-
-.iosSlider1 {
+.container {
 	position: relative;
 	top: 0;
 	left: 0;
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
+
 }
 
-.iosSlider1 .slider {
+.container .slider {
 	width: 100%;
 	height: 100%;
 }
 
-.iosSlider1 .slider .item {
+.container .slider .item {
 	float: left;
 	width: 100%;
 	height: 100%;
 }
-
-.iosSlider1 .slider .item1 {
-	background: #666;
+.container .slider .item.first{
+	box-shadow: 0 3px 10px -4px #000,  0 -3px 10px -4px #000;
+}
+.container .slider .item.last{
+	box-shadow: 0 3px 10px -4px #000,  0 -3px 10px -4px #000;
+}
+.container .slider .item2 {
 }
 
-.iosSlider1 .slider .item2 {
-	background: #999;
+/* inside item*/
+.slider .item .page{
+	margin-left:66.1%;
+	width:34%;
+	background: transparent url(http://proportio.site/squelettes/img/pix50.png) repeat scroll top left;
+	height:100%;
 }
 
-.iosSlider1 .slider .item3 {
-	background: #aaa;
+.slider .item .page .content{
+	bottom:0px;
+	max-width:320px;/*
+		TODO use hack here
+	*/
 }
 
-.iosSlider1 .slider .item4 {
-	background: #ddd;
+.slider .item .page .content .inner{
+	padding:30px;
+	color:#fff;
 }
 
-.iosSlider1 .slider .item5 {
-	background: #777;
+
+#nav .right a,#nav .left a{
+	position:fixed;
+	z-index:1000;
+	top:40%;
+}
+#nav .right a{
+	right:10px;
+}
+#nav .left a{
+	left:10px;
 }
 
-/* slider 2 */
-.slider2Container {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 150px;
-}
 
-.iosSlider2 {
-	position: relative;
-	bottom: 0;
-	left: 0;
-	overflow: hidden;
-	width: 100%;
-	height: 150px;
+#menu{
+	width:600px;
+	font: normal normal normal 11pt Arial, sans-serif;
+	/* i love when it is 9pt, then 23px top padding*/
+	color:#fff;
+	position:fixed;
+	z-index:100;
 }
-
-.iosSlider2 .slider {
-	width: 100%;
-	height: 100%;
-}
-
-.iosSlider2 .slider .item {
+#menu h1{
 	float: left;
-	width: 250px;
-	height: 100%;
+    height: 35px;
+    margin: 0;
+    padding: 10px 0 0 10px;
+    width: 130px;
 }
-
-.iosSlider2 .slider .item1 {
-	background: #666;
+#menu h1 a span{display:none;}
+#menu ul{
+	float: left;
+	margin: 0;
+	padding: 20px 0 0 0;
+	width: 450px;
 }
-
-.iosSlider2 .slider .item2 {
-	background: #999;
+#menu li {
+    list-style-type: none;
+	display:inline;
 }
-
-.iosSlider2 .slider .item3 {
-	background: #aaa;
+#menu a{
+	color:#fff;
+	text-decoration:none;
+/*	font-family: "Times New Roman", Times, serif;*/
+	height:100px;
 }
-
-.iosSlider2 .slider .item4 {
-	background: #ddd;
-}
-
-.iosSlider2 .slider .item5 {
-	background: #777;
-}
-
-/* s2hidden */
-.sliderHidden .slider1Container {
-	bottom: 0;
-}
-
-.sliderHidden .slider2Container {
-	display: none;
+#menu a:hover{
+/*	background-color:pink;*/
+	
 }

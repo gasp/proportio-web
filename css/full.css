@@ -1,3 +1,10 @@
+/*
+   main.css
+   proportio
+   
+   Created by gaspard on 2013-02-01
+*/
+
 /* main */
 .main {
 	position: absolute;
@@ -67,12 +74,19 @@
 	position:fixed;
 	z-index:1000;
 	top:40%;
+	width:89px;
+	height:135px;
+	background: transparent no-repeat scroll top left;
+	cursor:pointer;
+	cursor:hand;
 }
 #nav .right a{
 	right:10px;
+	background-image:url(../img/arr_right.png);
 }
 #nav .left a{
 	left:10px;
+	background-image: url(../img/arr_left.png);
 }
 
 

@@ -11,38 +11,7 @@
 	
 	<!-- iosSlider plugin -->
 	<script src="js/jquery.iosslider.js"></script>
-	
-	<script type="text/javascript">
-		$(document).ready(function() {
-			
-			$(".container").iosSlider({
-				snapToChildren: true,
-				desktopClickDrag: true,
-				keyboardCpntroms: true,
-				navNextSelector: $("#nav .right a"),
-				navPrevSelector: $("#nav .left a"),
-				unselectableSelector: $("#menu, #bullet"),
-				onSlideChange: function(){
-					$("#nav .left a").show();
-				}
-			});
-			
-			/* call to rerender iosSlider
-			$(".iosSlider1").iosSlider("update");
-			 */
-			
-			$(".slider .item").each(function(i){
-				var r = Number(Math.floor(Math.random()*0xFF)).toString(16);
-				$(this).css({'background-color':'#'+r+r+r});
-				if(!i)
-					$(this).addClass('first');
-			});
-			$(".slider .item").last().addClass('last');
-			$("#nav .left a").hide();
-			
-			
-		}); 
-	</script>
+	<script src="js/ui.js"></script>
 	<title>proportio | slider</title>
 	
 </head>

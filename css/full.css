@@ -126,3 +126,8 @@
 /*	background-color:pink;*/
 	
 }
+
+
+#bullet {
+	position: absolute;
+}

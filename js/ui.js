@@ -57,7 +57,7 @@ var menu = {
 		});
 		$("#menu li a").bind('mouseover',function(){
 			left = parseInt($(this).context.offsetLeft+($(this).width()/2));
-			$('#bullet').animate({left:left});
+			$('#bullet').stop().animate({left:left});
 		}).bind('mouseout',function(){
 			try{
 				window.killTimeout(menutempo);
@@ -67,18 +67,33 @@ var menu = {
 				if($.timers.length<1){
 					$("#menu li a.on").each(function(){
 						left = parseInt($(this).context.offsetLeft+($(this).width()/2));
-						$('#bullet').animate({left:left});
+						$('#bullet').stop().animate({left:left});
 					});
 				}
 			},3000);
 		});
+		// place navigation if there is one
+		var height = $(document).height();
+		$("#nav .left").css({top:(height/2)-10});
+		$("#nav .right").css({top:(height/2)-10});
 	}
 };
 
+var content = {
+	init: function(){
+		//place bottom text
+		var height = $(document).height(),
+			space = height-$('.content').height()-30;
+
+		$('.content').css({paddingTop:space});
+
+	}
+}
+
  $(document).ready(function(){
-// 	slider.init();
+ 	slider.init();
 	menu.init();
-	
+	content.init();
  	console.log('init');
  });
 
@@ -107,17 +122,12 @@ var backgroud ={
 		// are we in a portrait or in landscape display (viewport?)
 		this.display.landscape = (this.display.w*3>this.display.h*4);
 
-		//place bottom text
-		$('.content').css({paddingTop:(this.display.h-$('.content').height()-30)});
-
+		
 		// place pola if there is one
 		l = (this.display.w)/3-160;
 		t = (this.display.h)/2-180;
 		$('#pola').css({top: t, left:l, display: 'block'});
 		
-		// place navigation if there is one
-		$("#nav .left").css({top:(this.display.h)/2});
-		$("#nav .right").css({top:(this.display.h)/2,left:(this.display.w-30)});
 
 	},
 	load: function(){
@@ -206,6 +216,3 @@ $(document).ready(function(){
 });
 
 
-if(typeof console=="undefined"){
-	var console = {log: function(){}};
-}

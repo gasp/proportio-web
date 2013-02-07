@@ -128,6 +128,12 @@
 }
 
 
-#bullet {
-	position: absolute;
+#bullet{
+	position:absolute;
+	z-index:9;
+	top:40px;
+	left:100px;
+	color:#fff;
+	font: normal normal bold 20px Arial, sans-serif;
+/*	background-color:pink;*/
 }

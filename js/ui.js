@@ -5,6 +5,14 @@
 //  Created by gaspard on 2013-02-01
 // 
 
+/**
+ * slider ok
+ * menu ok
+ * content stable
+ * background unstable
+ * init stable
+ */
+
 var slider = {
 	data: {
 		numberOfSlides:0

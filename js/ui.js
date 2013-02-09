@@ -40,7 +40,6 @@ var slider = {
 		*/
 	},
 	change: function(sl){
-		console.dir(sl);
 		if(sl.currentSlideNumber > 1) $("#nav .left a").fadeIn();
 		else $("#nav .left a").fadeOut();
 		if(sl.currentSlideNumber < slider.data.numberOfSlides) $("#nav .right a").fadeIn();
@@ -81,21 +80,26 @@ var menu = {
 
 var content = {
 	init: function(){
+		content.place();
+	},
+	place: function(){
 		//place bottom text
 		var height = $(document).height(),
+			width = $(document).width()
 			space = height-$('.content').height()-30;
-
-		$('.content').css({paddingTop:space});
-
+		
+		if(width>800){
+			$('.page').show()
+			$('.content').css({paddingTop:space});
+		}
+		else{
+			$('.page').hide()
+		}
+		
+		
 	}
+	
 }
-
- $(document).ready(function(){
- 	slider.init();
-	menu.init();
-	content.init();
- 	console.log('init');
- });
 
 var backgroud ={
 	image: {
@@ -121,13 +125,6 @@ var backgroud ={
 
 		// are we in a portrait or in landscape display (viewport?)
 		this.display.landscape = (this.display.w*3>this.display.h*4);
-
-		
-		// place pola if there is one
-		l = (this.display.w)/3-160;
-		t = (this.display.h)/2-180;
-		$('#pola').css({top: t, left:l, display: 'block'});
-		
 
 	},
 	load: function(){
@@ -184,35 +181,39 @@ var backgroud ={
 			
 			e.preventDefault();
 		})
+	},
+	schtroumpf: function(){
+		/*
+		proportio.image.name= $('#page').attr('class');
+
+		$('#page').css({backgroundColor:proportio.display.bgcolor});
+		proportio.place();
+		proportio.load();
+
+		// onresize, placeStuffs
+		$(window).resize(function(){
+			proportio.place();
+			proportio.load();
+		});
+		proportio.nav();
+
+
+		*/
+		
 	}
 }
 
+
 $(document).ready(function(){
-	/*
-	proportio.image.name= $('#page').attr('class');
-	
-	$('#page').css({backgroundColor:proportio.display.bgcolor});
-	proportio.place();
-	proportio.load();
-	
-	// onresize, placeStuffs
-	$(window).resize(function(){
-		proportio.place();
-		proportio.load();
-	});
-	proportio.nav();
-	
-	
-	//make navigation work
-	$("#nav div").each(function(i){
-		$(this).bind('mouseover',function(){
-			$(this);
-		}).bind('click',function(){
-			self.location.href = $(this).find('a').attr('href');
-		})
+	slider.init();
+	menu.init();
+	content.init();
+
+	$(window).bind('resize',function(){
+		content.place();
 	})
-	*/
 	
+	console.log('init');
 });
 
 

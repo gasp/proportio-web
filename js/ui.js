@@ -198,25 +198,44 @@ var background ={
 
 		*/
 	},
-	colorize: function(){
-		// auto color
-		$(".slider .item").each(function(i){
-			console.log($(this),$(this).data());
+	init: function(){
+		$(".slider .slide").each(function(i){
+			background.colorize(this);
+			background.set(this);
 			
-			if($(this).data('color'))
-				var c = $(this).data('color');
-			else{
-				var r = Number(Math.floor(Math.random()*0xFF)).toString(16),
-					c = r+r+r; // gray
-			}
-			
-			$(this).css({'background-color':'#'+c});
 			if(!i)
 				$(this).addClass('first');
 		});
-		$(".slider .item").last().addClass('last');
+		$(".slider .slide").last().addClass('last');
+	},
+	colorize: function(slide){
+		// auto color
+		var c='',r;
+		if($(slide).data('color'))
+			c = $(slide).data('color');
+		else{
+			for (var i=2; i >= 0; i--){
+				r = Number(Math.floor(Math.random()*0xFF)).toString(16);
+				c += (r.length>1)?r:'0'+r; // adding missing 0 if needed
+			};
+		}
+		$(slide).css({'background-color':'#'+c});
+		
+	},
+	set: function(slide){
+		/*
+			TODO cope with id_rubrique
+		*/
+		
+		
+		var width = $(document).width(),
+			height = $(document).height(),
+			type='article',
+			id=$(slide).data('id_article')
+			url = '/spip.php?page=background&id_article='+id+'&w='+width+'&h='+height;
+		$(slide).css({'background-image':'url('+url+')'})
 	}
-	
+
 }
 
 
@@ -224,7 +243,7 @@ $(document).ready(function(){
 	slider.init();
 	menu.init();
 	content.init();
-	background.colorize();
+	background.init();
 	
 	$(window).bind('resize',function(){
 		content.place();

@@ -1,14 +1,18 @@
 <BOUCLE_principale(RUBRIQUES) {id_rubrique}><!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="author" content="gaspard from freelancis" />
-<meta http-equiv="imagetoolbar" content="no" />
+<meta charset="utf-8">
+<meta name="author" content="gaspard from freelancis">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 
-[<link rel="stylesheet" href="(#CHEMIN{css/master.css})" type="text/css" media="screen" charset="utf-8">]
-[<script src="(#CHEMIN{js/jq.min.js})" type="text/javascript" charset="utf-8"></script>]
+[<link rel="stylesheet" href="(#CHEMIN{css/full.css})" type="text/css" media="screen" charset="utf-8">]
+[<script src="(#CHEMIN{js/lib/jquery-1.9.1.min.js})" type="text/javascript" charset="utf-8"></script>]
+[<script src="(#CHEMIN{js/lib/jquery.easing-1.3.js})" type="text/javascript" charset="utf-8"></script>]
+<!-- iosSlider plugin -->
+[<script src="(#CHEMIN{js/lib/jquery.iosslider.js})" type="text/javascript" charset="utf-8"></script>]
 [<script src="(#CHEMIN{js/ui.js})" type="text/javascript" charset="utf-8"></script>]
-<title>#TITRE</title>
+<title>#TITRE | proportio</title>
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -45,13 +49,13 @@
 
 <B_articles>
 <BOUCLE_articles(ARTICLES){id_rubrique}>
-
+<!--
 	<BOUCLE_fond(DOCUMENTS){id_article}{mode=image}{0,1}>
 		#SET{color,#LOGO_DOCUMENT||couleur_extraire}
 		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
 		[(#LOGO_DOCUMENT{apercu}||image_reduire{100})]
-		
 	</BOUCLE_fond>
+-->
 <div class="item article art#ID_ARTICLE" data-id_article="#ID_ARTICLE"
 	[data-color="(#GET{color})"]>
 	<div class="page">
@@ -71,7 +75,7 @@
 
 <!--
 <div id="pola" style="top: 86px; left: 140px; display: block;">
-	<a href="item001.html"><img alt="pola" src="iconography/pola_experience.jpg" /></a>
+	<a href="item001.html"><img alt="pola" src="iconography/pola_experience.jpg"></a>
 </div>
 -->
 

@@ -8,8 +8,8 @@ a img{border:none;}
 body{
 	margin:0;
 	padding:0;
-	overflow:hidden;
-	background-color:#ccc;
+/*	overflow:hidden;*/
+	background-color:#eee;
 
 }
 html, body {width:100%; height:100%;margin:0;padding:0;}
@@ -32,8 +32,8 @@ html, body {width:100%; height:100%;margin:0;padding:0;}
 	font: normal normal normal 11pt Arial, sans-serif;
 	/* i love when it is 9pt, then 23px top padding*/
 	color:#fff;
-	position:absolute;
-	z-index:10;
+	position:fixed;
+	z-index:100;
 }
 #menu h1{
 	float: left;
@@ -88,7 +88,7 @@ html, body {width:100%; height:100%;margin:0;padding:0;}
 	display:none;
 }
 #nav .left, #nav .right{
-	position:absolute;
+	position:fixed;
 	z-index:100;
 	left:10px;
 	width:89px;

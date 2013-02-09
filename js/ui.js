@@ -39,6 +39,16 @@ var proportio={
 	load: function(){
 
 		console.log(proportio.choose());
+		
+		$("div.page").each(function(i){
+			console.log(this);
+			console.log($(this).data('id_article'))
+			console.log($(this).data('id_article'))
+			$(this).css({'background-color':'#'+$(this).data('color')})
+			.css({left:proportio.display.w*i});
+			
+			
+		});
 
 
 		var img = new Image();
@@ -74,6 +84,12 @@ var proportio={
 		*/
 		return this.image.path + "page_" + this.image.name 
 			+ this.image.sizes[i].w + 'x' +  this.image.sizes[i].h + '.jpg';
+	},
+	nav: function(){
+		$('#nav a').bind('click',function(e){
+			
+			e.preventDefault();
+		})
 	}
 }
 
@@ -90,6 +106,8 @@ $(document).ready(function(){
 		proportio.place();
 		proportio.load();
 	});
+	proportio.nav();
+	
 	
 	
 	// display a bullet under the menu

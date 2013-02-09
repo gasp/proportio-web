@@ -42,7 +42,15 @@
 
 <B_articles>
 <BOUCLE_articles(ARTICLES){id_rubrique}>
-<div class="page art#ID_ARTICLE">
+
+	<BOUCLE_fond(DOCUMENTS){id_article}{mode=image}{0,1}>
+		#SET{color,#LOGO_DOCUMENT||couleur_extraire}
+		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
+		[(#LOGO_DOCUMENT{apercu}||image_reduire{100})]
+		
+	</BOUCLE_fond>
+<div class="page article art#ID_ARTICLE" data-id_article="#ID_ARTICLE"
+	[data-color="(#GET{color})"]>
 	<div class="container">
 [		<div class="content">
 			<div class="inner">
@@ -67,8 +75,8 @@
 
 
 <div id="nav">
-<!--	<div class="left"><a href="sth.html">previous</a></div>-->
-<!--	<div class="right"><a href="xpss2011a.html">next</a></div>-->
+	<div class="left"><a href="#prev">previous</a></div>
+	<div class="right"><a href="#next">next</a></div>
 </div>
 
 

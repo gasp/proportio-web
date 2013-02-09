@@ -1,0 +1,115 @@
+/*
+   master.css
+   proportio
+   
+   Created by gaspard on 2011-04-23.
+*/
+a img{border:none;}
+body{
+	margin:0;
+	padding:0;
+/*	overflow:hidden;*/
+	background-color:#eee;
+
+}
+html, body {width:100%; height:100%;margin:0;padding:0;}
+
+
+.page{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	background: transparent url(../img/pix50.png) no-repeat scroll top left;
+}
+
+/*header elements*/
+
+#menu{
+	width:600px;
+	font: normal normal normal 11pt Arial, sans-serif;
+	/* i love when it is 9pt, then 23px top padding*/
+	color:#fff;
+	position:fixed;
+	z-index:100;
+}
+#menu h1{
+	float: left;
+    height: 35px;
+    margin: 0;
+    padding: 10px 0 0 10px;
+    width: 130px;
+}
+#menu h1 a span{display:none;}
+#menu ul{
+	float: left;
+	margin: 0;
+	padding: 20px 0 0 0;
+	width: 450px;
+}
+#menu li {
+    list-style-type: none;
+	display:inline;
+}
+#menu a{
+	color:#fff;
+	text-decoration:none;
+/*	font-family: "Times New Roman", Times, serif;*/
+	height:100px;
+}
+#menu a:hover{
+/*	background-color:pink;*/
+	
+}
+
+/* content*/
+
+.page .container{
+	margin-left:66.1%;
+	width:34%;
+	background: transparent url(../img/pix50.png) repeat scroll top left;
+	height:100%;
+}
+.page .container .content{
+	bottom:0px;
+	max-width:320px;/*
+		TODO use hack here
+	*/
+}
+.page .container .content .inner{
+	padding:30px;
+	color:#fff;
+}
+
+#pola{
+	position:absolute;
+	display:none;
+}
+#nav .left, #nav .right{
+	position:fixed;
+	z-index:100;
+	left:10px;
+	width:89px;
+	height:135px;
+	background: transparent no-repeat scroll top left;
+	cursor:pointer;
+	cursor:hand;
+}
+#nav a{display:none;}
+#nav .left{
+	background-image: url(../img/arr_left.png);
+}
+#nav .right{
+	background-image:url(../img/arr_right.png);
+}
+#bullet{
+	position:absolute;
+	z-index:9;
+	top:40px;
+	left:100px;
+	color:#fff;
+	font: normal normal bold 20px Arial, sans-serif;
+/*	background-color:pink;*/
+}

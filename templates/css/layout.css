@@ -23,7 +23,7 @@
 	overflow:hidden;
 }
 
-#page{
+#page11{
 	z-index:2;
 	position:absolute;
 	width:100%;
@@ -36,51 +36,51 @@
 
 /*menu elements*/
 
-#page #menu h1{
+#page11 #menu h1{
 	width:130px;
 	height:35px;
 	margin:0;
 	padding:10px 0 0 10px;
 	float:left;
 }
-#page #menu h1 a span{
+#page11 #menu h1 a span{
 	display:none;
 }
-#page #menu ul{
+#page11 #menu ul{
 	margin:0;
 	padding:23px 0 0 0;
 	float:left;
 	width:450px;
 	
 }
-#page #menu ul li{
+#page11 #menu ul li{
 	display:inline;
 	list-style-type:none;
 }
 
 /* content*/
 
-#page #container{
+#page11 #container{
 	margin-left:67%;
 	width:33%;
 	display:block;
 	position:relative;
 	height:100%;
 }
-#page #container #under{
+#page11 #container #under{
 	position:absolute;
 	background-color:#000;
 	width:100%;
 	height:100%;
 	opacity:.3;
 }
-#page #container #content{
+#page11 #container #content{
 	position:absolute;
 	bottom:0px;
 	max-width:320px;/*
 		TODO use hack here
 	*/
 }
-#page #container #content .inner{
+#page11 #container #content .inner{
 	padding:30px;
 }

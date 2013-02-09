@@ -25,12 +25,15 @@
 	</ul>
 	<div id="bullet">&bull;</div>
 </div>
-<div id="slider">
+
+<div class="main">
+	<div class="container">
+		<div class="slider">
 
 
 [
-<div class="page home">
-	<div class="container">
+<div class="item home">
+	<div class="page">
 		<div class="content">
 			<div class="inner">
 				(#TEXTE)
@@ -49,9 +52,9 @@
 		[(#LOGO_DOCUMENT{apercu}||image_reduire{100})]
 		
 	</BOUCLE_fond>
-<div class="page article art#ID_ARTICLE" data-id_article="#ID_ARTICLE"
+<div class="item article art#ID_ARTICLE" data-id_article="#ID_ARTICLE"
 	[data-color="(#GET{color})"]>
-	<div class="container">
+	<div class="page">
 [		<div class="content">
 			<div class="inner">
 				(#TEXTE)

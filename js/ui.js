@@ -24,14 +24,6 @@ var slider = {
 				slider.data = sl.data;
 			}
 		});
-		// auto color
-		$(".slider .item").each(function(i){
-			var r = Number(Math.floor(Math.random()*0xFF)).toString(16);
-			$(this).css({'background-color':'#'+r+r+r});
-			if(!i)
-				$(this).addClass('first');
-		});
-		$(".slider .item").last().addClass('last');
 		$("#nav .left a").hide();
 	},
 	update: function(){
@@ -95,13 +87,11 @@ var content = {
 		else{
 			$('.page').hide()
 		}
-		
-		
 	}
-	
 }
 
-var backgroud ={
+
+var background ={
 	image: {
 		name: null,
 		path: '/iconography/',
@@ -199,8 +189,26 @@ var backgroud ={
 
 
 		*/
-		
+	},
+	colorize: function(){
+		// auto color
+		$(".slider .item").each(function(i){
+			console.log($(this),$(this).data());
+			
+			if($(this).data('color'))
+				var c = $(this).data('color');
+			else{
+				var r = Number(Math.floor(Math.random()*0xFF)).toString(16),
+					c = r+r+r; // gray
+			}
+			
+			$(this).css({'background-color':'#'+c});
+			if(!i)
+				$(this).addClass('first');
+		});
+		$(".slider .item").last().addClass('last');
 	}
+	
 }
 
 
@@ -208,12 +216,13 @@ $(document).ready(function(){
 	slider.init();
 	menu.init();
 	content.init();
-
+	background.colorize();
+	
 	$(window).bind('resize',function(){
 		content.place();
 	})
 	
-	console.log('init');
+	console.log('initialized');
 });
 
 

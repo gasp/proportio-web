@@ -53,7 +53,6 @@
 	<BOUCLE_fond(DOCUMENTS){id_article}{mode=image}{0,1}>
 		#SET{color,#LOGO_DOCUMENT||couleur_extraire}
 		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
-		[(#LOGO_DOCUMENT{apercu}||image_reduire{100})]
 	</BOUCLE_fond>
 -->
 <div class="item article art#ID_ARTICLE" data-id_article="#ID_ARTICLE"
@@ -73,19 +72,10 @@
 
 </div><!--/#slider-->
 
-<!--
-<div id="pola" style="top: 86px; left: 140px; display: block;">
-	<a href="item001.html"><img alt="pola" src="iconography/pola_experience.jpg"></a>
-</div>
--->
-
-
-
 <div id="nav">
 	<div class="left"><a href="#prev">previous</a></div>
 	<div class="right"><a href="#next">next</a></div>
 </div>
-
 
 </body>
 </html>

@@ -87,6 +87,7 @@
 	cursor:pointer;
 	cursor:hand;
 }
+#nav a span{display:none}
 #nav .right a{
 	right:10px;
 	background-image:url(../img/arr_right.png);

@@ -20,7 +20,7 @@ var slider = {
 	init: function(){
 		$(".container").iosSlider({
 			snapToChildren: true,
-			desktopClickDrag: true,
+			desktopClickDrag: true, // really, this has to be false i prod
 			keyboardControls: true,
 			navNextSelector: $("#nav .right a"),
 			navPrevSelector: $("#nav .left a"),
@@ -32,6 +32,8 @@ var slider = {
 				slider.data = sl.data;
 			}
 		});
+		if(slider.data.numberOfSlides == 1)
+			$("#nav .right a").hide();
 		$("#nav .left a").hide();
 	},
 	update: function(){
@@ -232,8 +234,28 @@ var background ={
 			height = $(document).height(),
 			type='article',
 			id=$(slide).data('id_article')
-			url = '/spip.php?page=background&id_article='+id+'&w='+width+'&h='+height;
-		$(slide).css({'background-image':'url('+url+')'})
+			url = '/spip.php',
+			data = {
+				page: 'background.json',
+				id_article: id,
+				w: width,
+				h: height
+			};
+			
+			$.ajax({
+				dataType: "json",
+				url: url,
+				data: data,
+				success: function(d){
+					console.log(slide,d.file);
+					$(slide).css({'background-image':'url('+d.file+')'});
+				},
+				error: function(e,d){
+					console.log('error',e,d);
+				}
+			})
+			
+		
 	}
 
 }

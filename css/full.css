@@ -5,6 +5,9 @@
    Created by gaspard on 2013-02-01
 */
 
+@import url("typo.css");
+
+
 /* main */
 .main {
 	position: absolute;
@@ -66,7 +69,7 @@
 
 .slider .slide .page .content{
 	bottom:0px;
-	max-width:320px;/*
+	max-width:450px;/*
 		TODO use hack here
 	*/
 }
@@ -79,7 +82,7 @@
 
 #nav .right a,#nav .left a{
 	position:fixed;
-	z-index:1000;
+	z-index:100;
 	top:40%;
 	width:20px;
 	height:40px;
@@ -100,11 +103,8 @@
 
 #menu{
 	width:98%;
-	font: normal normal normal 11pt Arial, sans-serif;
-	/* i love when it is 9pt, then 23px top padding*/
-	color:#fff;
 	position:fixed;
-	z-index:100;
+	z-index:99;
 }
 #menu h1{
 	float: left;
@@ -125,7 +125,6 @@
 	display:inline;
 }
 #menu a{
-	color:#fff;
 	text-decoration:none;
 /*	font-family: "Times New Roman", Times, serif;*/
 	height:100px;
@@ -149,3 +148,4 @@
 	font: normal normal bold 20px Arial, sans-serif;
 /*	background-color:pink;*/
 }
+

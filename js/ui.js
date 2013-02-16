@@ -108,24 +108,7 @@ var content = {
 
 
 var background = {
-	schtroumpf: function(){
-		/*
-		proportio.image.name= $('#page').attr('class');
-
-		$('#page').css({backgroundColor:proportio.display.bgcolor});
-		proportio.place();
-		proportio.load();
-
-		// onresize, placeStuffs
-		$(window).resize(function(){
-			proportio.place();
-			proportio.load();
-		});
-		proportio.nav();
-
-
-		*/
-	},
+	tempo: null,
 	init: function(){
 		$(".slider .slide").each(function(i){
 			background.colorize(this);
@@ -151,9 +134,15 @@ var background = {
 		
 	},
 	update: function (slide) {
-		$(".slider .slide").each(function(i){
-			background.fetch(this);
-		});
+		if(background.tempo !== null){
+			window.clearTimeout(background.tempo);
+		}
+		background.tempo = window.setTimeout(function(){
+			$(".slider .slide").each(function(i){
+				background.fetch(this);
+			});
+		},300);
+		
 	},	
 	fetch: function (slide) {
 		var width = $(document).width(),

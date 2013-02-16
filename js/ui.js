@@ -32,9 +32,15 @@ var slider = {
 				slider.data = sl.data;
 			}
 		});
+		
+		// nav
 		if(slider.data.numberOfSlides == 1)
 			$("#nav .right a").hide();
 		$("#nav .left a").hide();
+		$("#nav a").bind("click",function(e){
+			e.preventDefault();
+			return false;
+		});
 	},
 	update: function(){
 		/* call to rerender iosSlider
@@ -101,87 +107,7 @@ var content = {
 }
 
 
-var background ={
-	image: {
-		name: null,
-		path: '/iconography/',
-//		path: 'http://freelancis.net/~franck/proportio/iconography/',
-		sizes:[{w: 640,h: 480},{w: 800,h: 600},{w:1024,h: 768},{w:1280,h: 960},{w:1600,h:1200},{w:2048,h:1536}]
-	},
-	display: {
-		bgcolor:'#bccea6',
-		w:null,
-		h:null,
-		landscape:null
-		
-	},
-	place: function(){
-		this.display.w = $(document).width();
-		this.display.h = $(document).height();
-
-		/*
-			WARNING : document and window do not have the same dimension
-		*/
-
-		// are we in a portrait or in landscape display (viewport?)
-		this.display.landscape = (this.display.w*3>this.display.h*4);
-
-	},
-	load: function(){
-
-		console.log(proportio.choose());
-		
-		$("div.page").each(function(i){
-			console.log(this);
-			console.log($(this).data('id_article'))
-			console.log($(this).data('id_article'))
-			$(this).css({'background-color':'#'+$(this).data('color')})
-			.css({left:proportio.display.w*i});
-			
-			
-		});
-
-
-		var img = new Image();
-		$(img).load(function () {
-			$('#page').css({
-					backgroundImage: 'url('+proportio.choose()+')',
-			});
-			$('#page').fadeIn();
-
-		}).error(function () {
-			//image load fail
-		}).attr('src',proportio.choose());
-	},
-	choose: function(){
-		/*
-		 if we are in landscape viewport mode, we gonna choose the image depending on the width
-		 if we are in portrait, let's choose depending on the height
-		*/
-		console.log(this);
-
-		var i=0;
-		while((!this.display.landscape && (this.display.h > this.image.sizes[i].h))
-			||(this.display.landscape && (this.display.w > this.image.sizes[i].w))){
-			console.log(i);
-
-			i++;
-		}
-		console.log({display:this.display,selectedImage:this.image.sizes[i]});
-
-		/*
-		 images' url is path/ name width x height .jpg
-		 http://i.try.com/iconography/page_home800x600.jpg
-		*/
-		return this.image.path + "page_" + this.image.name 
-			+ this.image.sizes[i].w + 'x' +  this.image.sizes[i].h + '.jpg';
-	},
-	nav: function(){
-		$('#nav a').bind('click',function(e){
-			
-			e.preventDefault();
-		})
-	},
+var background = {
 	schtroumpf: function(){
 		/*
 		proportio.image.name= $('#page').attr('class');
@@ -203,7 +129,7 @@ var background ={
 	init: function(){
 		$(".slider .slide").each(function(i){
 			background.colorize(this);
-			background.set(this);
+			background.fetch(this);
 			
 			if(!i)
 				$(this).addClass('first');
@@ -224,12 +150,12 @@ var background ={
 		$(slide).css({'background-color':'#'+c});
 		
 	},
-	set: function(slide){
-		/*
-			TODO cope with id_rubrique
-		*/
-		
-		
+	update: function (slide) {
+		$(".slider .slide").each(function(i){
+			background.fetch(this);
+		});
+	},	
+	fetch: function (slide) {
 		var width = $(document).width(),
 			height = $(document).height(),
 			type='article',
@@ -241,21 +167,22 @@ var background ={
 				w: width,
 				h: height
 			};
-			
-			$.ajax({
-				dataType: "json",
-				url: url,
-				data: data,
-				success: function(d){
-					console.log(slide,d.file);
-					$(slide).css({'background-image':'url('+d.file+')'});
-				},
-				error: function(e,d){
-					console.log('error',e,d);
-				}
-			})
-			
-		
+		// ajax query
+		return $.ajax({
+			dataType: "json",
+			async:true,
+			url: url,
+			data: data,
+			success: function(d){
+				background.set(slide,d.file);
+			},
+			error: function(d,e){
+				console.log('error',e,d);
+			}
+		})
+	},
+	set: function(slide,file){
+		$(slide).css({'background-image':'url('+file+')'});	
 	}
 
 }
@@ -269,6 +196,7 @@ $(document).ready(function(){
 	
 	$(window).bind('resize',function(){
 		content.place();
+		background.update();
 	})
 	
 	console.log('initialized');

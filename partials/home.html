@@ -1,0 +1,36 @@
+<div class="slide home">
+	<div class="page">
+		<div class="content">
+			<div class="inner">
+				<div class="section blog">
+				<BOUCLE_blog(ARTICLES){id_rubrique=5}{!par date}>
+					<div class="article">
+						<div class="header">[<h3><a href="#URL_ARTICLE">(#TITRE|couper{40})</a></h3>]</div>
+[<!--(#COMPTEUR_BOUCLE|=={1})-->
+	[<figure class="icono">
+		<a  title="[(#TITRE|attribut_html)]"
+		href="#URL_ARTICLE">(#LOGO_ARTICLE|image_passe_partout{450,110}|image_recadre{450,110,center}|image_aplatir{jpg,ffffff}|inserer_attribut{'height,''})</a>
+	</figure>]
+	<div class="texte introduction">
+		[(#TEXTE|couper{120})]
+	</div>
+]
+					</div><!--/.article-->
+				</BOUCLE_blog>
+				</div><!--/.section .blog-->
+				
+				<div class="section pinned">
+					<div class="article">
+						<div class="header">
+							<h3><a href="#fitting">Request a fitting</a></h3>
+						</div>
+					</div><!--/.article-->
+				</div><!--/.section .pinned>
+				
+				
+				
+				
+			</div><!--/.inner-->
+		</div><!--/.content-->
+	</div><!--/.page-->
+</div><!-- /.slide .home-->

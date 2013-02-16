@@ -27,6 +27,7 @@
 		<li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>#TITRE</a></li>
 		</BOUCLE_mainnav>
 	</ul>
+	<div class="lang"><a href="/en">en</a> | <a href="/fr">fr</a> | <a href="/de">de</a></div>
 	<div id="bullet">&bull;</div>
 </div>
 
@@ -35,47 +36,20 @@
 		<div class="slider">
 
 
-[
-<div class="slide home">
-	<div class="page">
-		<div class="content">
-			<div class="inner">
-				(#TEXTE)
-			</div>
-		</div>
-	</div>
-</div>
-]
-
-<B_articles>
-<BOUCLE_articles(ARTICLES){id_rubrique}>
-<!--
-	<BOUCLE_fond(DOCUMENTS){id_article}{mode=image}{0,1}>
-		#SET{color,#LOGO_DOCUMENT||couleur_extraire}
-		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
-	</BOUCLE_fond>
--->
-<div class="slide article art#ID_ARTICLE" data-id_article="#ID_ARTICLE"
-	[data-color="(#GET{color})"]>
-	<div class="page">
-[		<div class="content">
-			<div class="inner">
-				(#TEXTE)
-			</div>
-		</div>
-]
-	</div>
-</div><!--/.page art#ID_ARTICLE-->
-</BOUCLE_articles>
-</B_articles>
-<//B_articles>
-
-</div><!--/#slider-->
-
+<BOUCLE_is_home(RUBRIQUES){id_rubrique}{racine}>
+<INCLURE{fond=partials/home,env}>
+</BOUCLE_is_home>
+</B_is_home>
+<INCLURE{fond=partials/rubrique,env}>
+<//B_is_home>
+</div><!--/.slider-->
+</div><!--/.container-->
 <div id="nav">
 	<div class="left"><a href="#prev"><span>previous</span></a></div>
 	<div class="right"><a href="#next"><span>next</span></a></div>
 </div>
+
+</div><!--/.main-->
 
 </body>
 </html>

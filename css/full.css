@@ -81,8 +81,8 @@
 	position:fixed;
 	z-index:1000;
 	top:40%;
-	width:89px;
-	height:135px;
+	width:20px;
+	height:40px;
 	background: transparent no-repeat scroll top left;
 	cursor:pointer;
 	cursor:hand;
@@ -99,7 +99,7 @@
 
 
 #menu{
-	width:600px;
+	width:98%;
 	font: normal normal normal 11pt Arial, sans-serif;
 	/* i love when it is 9pt, then 23px top padding*/
 	color:#fff;
@@ -133,6 +133,10 @@
 #menu a:hover{
 /*	background-color:pink;*/
 	
+}
+#menu .lang{
+	padding: 20px 0 0 0;
+	float:right;
 }
 
 

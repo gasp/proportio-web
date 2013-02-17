@@ -1,1 +1,1 @@
-<BOUCLE_principale(DOCUMENTS){id_article}{0,1}>[#HTTP_HEADER{Content-Type: image/png;}(#FICHIER|image_passe_partout{#ENV{w},#ENV{h}}|image_recadre{#ENV{w},#ENV{h}}|extraire_attribut{src}|file_get_contents)]</BOUCLE_principale>
+#HTTP_HEADER{Content-Type: image/jpeg;}<BOUCLE_principale(DOCUMENTS){id_article}{0,1}>[(#FICHIER|image_passe_partout{#ENV{w},#ENV{h}}|image_recadre{#ENV{w},#ENV{h}}|extraire_attribut{src}|file_get_contents)]</BOUCLE_principale>

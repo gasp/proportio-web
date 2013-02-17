@@ -1,0 +1,151 @@
+/*
+   main.css
+   proportio
+   
+   Created by gaspard on 2013-02-01
+*/
+
+@import url("typo.css");
+
+
+/* main */
+.main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	width: 100%;
+	height: 100%;
+
+	background: url(../img/container-bg.jpg) repeat 50% 0;
+}
+
+
+.container {
+	position: relative;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+
+}
+
+.container .slider {
+	width: 100%;
+	height: 100%;
+}
+
+.container .slider .slide {
+	background-repeat: no-repeat;
+	background-position:center center;
+	background-attachment: fixed;
+	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+.container .slider .slide.first{
+	box-shadow: 0 3px 10px -4px #000,  0 -3px 10px -4px #000;
+}
+.container .slider .slide.last{
+	box-shadow: 0 3px 10px -4px #000,  0 -3px 10px -4px #000;
+}
+
+/* inside slide*/
+.slider .slide .page{
+	margin-left:66.1%;
+	width:34%;
+	background: transparent url(http://proportio.site/squelettes/img/pix50.png) repeat scroll top left;
+	height:100%;
+}
+
+.slider .slide .page .content{
+	bottom:0px;
+	max-width:450px;/*
+		TODO use hack here
+	*/
+}
+
+.slider .slide .page .content .inner{
+	padding:30px;
+	color:#fff;
+}
+
+
+#nav .right a,#nav .left a{
+	position:fixed;
+	z-index:100;
+	top:40%;
+	width:20px;
+	height:40px;
+	background: transparent no-repeat scroll top left;
+	cursor:pointer;
+	cursor:hand;
+}
+#nav a span{display:none}
+#nav .right a{
+	right:10px;
+	background-image:url(../img/arr_right.png);
+}
+#nav .left a{
+	left:10px;
+	background-image: url(../img/arr_left.png);
+}
+
+
+#menu{
+	width:98%;
+	position:fixed;
+	z-index:99;
+}
+#menu h1{
+	float: left;
+    height: 35px;
+    margin: 0;
+    padding: 10px 0 0 10px;
+    width: 130px;
+}
+#menu h1 a span{display:none;}
+#menu ul{
+	float: left;
+	margin: 0;
+	padding: 20px 0 0 0;
+	width: 450px;
+}
+#menu li {
+    list-style-type: none;
+	display:inline;
+}
+#menu a{
+	text-decoration:none;
+/*	font-family: "Times New Roman", Times, serif;*/
+	height:100px;
+}
+#menu a:hover{
+/*	background-color:pink;*/
+	
+}
+#menu .lang{
+	padding: 20px 0 0 0;
+	float:right;
+}
+
+
+#bullet{
+	position:absolute;
+	z-index:9;
+	top:40px;
+	left:100px;
+	color:#fff;
+	font: normal normal bold 20px Arial, sans-serif;
+/*	background-color:pink;*/
+}
+

@@ -4,32 +4,41 @@
 			<div class="inner">
 				<div class="section blog">
 				<BOUCLE_blog(ARTICLES){id_rubrique=5}{!par date}>
-					<div class="article">
+					<div class="article"><!--article #ID_ARTICLE-->
 						<div class="header">[<h3><a href="#URL_ARTICLE">(#TITRE|couper{40})</a></h3>]</div>
 [<!--(#COMPTEUR_BOUCLE|=={1})-->
 	[<figure class="icono">
 		<a  title="[(#TITRE|attribut_html)]"
-		href="#URL_ARTICLE">(#LOGO_ARTICLE|image_passe_partout{450,110}|image_recadre{450,110,center}|image_aplatir{jpg,ffffff}|inserer_attribut{'height,''})</a>
+		href="#URL_ARTICLE">(#LOGO_ARTICLE|image_passe_partout{450,110}|image_recadre{450,110,center}|image_aplatir{jpg,ffffff}|inserer_attribut{'height',''}|inserer_attribut{'alt',[(#TITRE|attribut_html)]})</a>
 	</figure>]
 	<div class="texte introduction">
 		[(#TEXTE|couper{120})]
 	</div>
 ]
-					</div><!--/.article-->
+					</div><!--/.article #ID_ARTICLE-->
 				</BOUCLE_blog>
 				</div><!--/.section .blog-->
-				
+				<BOUCLE_pin(ARTICLES){id_mot=1}{par num titre, titre}>
 				<div class="section pinned">
 					<div class="article">
 						<div class="header">
-							<h3><a href="#fitting">Request a fitting</a></h3>
+							<h3><a href="#URL_ARTICLE">#TITRE</a></h3>
 						</div>
+						[<figure class="icono">
+							<a  title="[(#TITRE|attribut_html)]"
+							href="#URL_ARTICLE">(#LOGO_ARTICLE|image_passe_partout{450,110}|image_recadre{450,110,center}|image_aplatir{jpg,ffffff}|inserer_attribut{'height',''}|inserer_attribut{'alt',[(#TITRE|attribut_html)]})</a>
+						</figure>]
 					</div><!--/.article-->
-				</div><!--/.section .pinned>
+				</div><!--/.section .pinned-->
+				</BOUCLE_pin>
 				
 				
-				
-				
+				<div clsass="social">
+					<a href="http://pinterest.com/trystudio/inspiration-proportio/" title="what inspires us">inspiration</a> |
+					<a href="" title="contact us">contact</a> |
+					<a href="https://www.facebook.com/proportio" title="follow us on facebook">facebook</a> |
+					<a href="https://twitter.com/proportio" title="follow us on twitter">twitter</a>
+				</div>
 			</div><!--/.inner-->
 		</div><!--/.content-->
 	</div><!--/.page-->

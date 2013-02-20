@@ -20,7 +20,7 @@ var slider = {
 	init: function(){
 		$(".container").iosSlider({
 			snapToChildren: true,
-			desktopClickDrag: true, // really, this has to be false i prod
+			desktopClickDrag: true, // really, this has to be false in prod
 			keyboardControls: true,
 			navNextSelector: $("#nav .right a"),
 			navPrevSelector: $("#nav .left a"),
@@ -88,17 +88,25 @@ var menu = {
 
 var content = {
 	init: function(){
-		content.place();
+		content.place(true);
 	},
-	place: function(){
+	place: function(animate){
 		//place bottom text
 		var height = $(document).height(),
 			width = $(document).width()
-			space = height-$('.content').height()-30;
+			space = Math.max(height-$('.content').height()-20,30);
+		
+			/*
+				TODO move this to media queries
+			*/
 		
 		if(width>800){
-			$('.page').show()
-			$('.content').css({paddingTop:space});
+			$('.page').show();
+			if(animate === true)
+				$('.content').animate({paddingTop:space},"fast");
+			else
+				$('.content').css({paddingTop:space});
+
 		}
 		else{
 			$('.page').hide()
@@ -179,9 +187,11 @@ var background = {
 
 $(document).ready(function(){
 	slider.init();
-	menu.init();
-	content.init();
 	background.init();
+	var t = window.setTimeout(function(){
+		menu.init();
+		content.init();
+	},300);
 	
 	$(window).bind('resize',function(){
 		content.place();

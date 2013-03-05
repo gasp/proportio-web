@@ -37,3 +37,7 @@ a{
 .article .introduction{
 	padding:5px 10px 10px 10px;
 }
+
+.pinned{
+	margin-top:1em;
+}

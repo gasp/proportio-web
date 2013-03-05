@@ -15,10 +15,14 @@
 <!--
 	<BOUCLE_fond(DOCUMENTS){id_article}{mode=image}{0,1}>
 		#SET{color,#LOGO_DOCUMENT||couleur_extraire}
+		#SET{small,#LOGO_DOCUMENT||image_reduire{600,300}|extraire_attribut{src}}
 		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
+		[<div class="small">#GET{small}</div>]
 	</BOUCLE_fond>
+
 -->
 <div class="slide article art#ID_ARTICLE" data-id_article="#ID_ARTICLE"
+	[style="background-image: url('(#GET{small})');"]
 	[data-color="(#GET{color})"]>
 	<div class="page">
 [		<div class="content">

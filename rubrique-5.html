@@ -22,20 +22,22 @@
 		</div>
 		<div class="row">
 			<div class="span5 offset4 white">
-				<div class="inner">
-					<section>
-						<article>
-							<p class="date">About</p>
+				<section>
+					<article>
+						<div class="inner">
+							<p class="date">Readme</p>
 							<header>
 								<h2>About this blog</h2>
 							</header>
 							<div>
 								(#TEXTE)
 							</div>
-						</article>
-					</section>
-					<section>
-						<BOUCLE_articles(ARTICLES){!par date}{0,5}{id_rubrique}>
+						</div><!--/.inner-->
+					</article>
+				</section>
+				<section>
+					<BOUCLE_articles(ARTICLES){!par date}{0,5}{id_rubrique}>
+						<div class="inner">
 							<article>
 								[<p class="date">(#DATE|affdate_simple)</p>]
 								<header class="titraille">
@@ -45,13 +47,15 @@
 								[<div class="chapo">(#CHAPO)</div>]
 								[<div class="texte">(#TEXTE|image_reduire)</div>]
 							</article>
-						</BOUCLE_articles>
-					</section>
-				</div><!--/.inner-->
+						</div><!--/.inner-->
+					</BOUCLE_articles>
+				</section>
+
 			</div><!--/.white-->
 		</div><!--/.row-->
 	</div><!--/.container-->
-	
+	<script src="#CHEMIN{js/lib/jquery-1.9.1.min.js}"></script>
+	<script src="#CHEMIN{js/blog.js}"></script>
 </body>
 </html>
 </BOUCLE_principale>

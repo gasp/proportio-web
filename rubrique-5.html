@@ -1,0 +1,57 @@
+<BOUCLE_principale(RUBRIQUES){id_rubrique}>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>blog | #NOM_SITE_SPIP</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="stylesheet" href="#CHEMIN{css/bootstrap.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/bootstrap-responsive.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/blog.css}">
+</head>
+<body class="page blog">
+	
+	<div class="container">
+		<div class="row">
+			<div class="span4 offset4 header">
+				<h1>#DESCRIPTIF</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span5 offset4 white">
+				<div class="inner">
+					<section>
+						<article>
+							<p class="date">About</p>
+							<header>
+								<h2>About this blog</h2>
+							</header>
+							<div>
+								(#TEXTE)
+							</div>
+						</article>
+					</section>
+					<section>
+						<BOUCLE_articles(ARTICLES){!par date}{0,5}{id_rubrique}>
+							<article>
+								[<p class="date">(#DATE|affdate_simple)</p>]
+								<header class="titraille">
+									<h2>#TITRE</h2>
+								</header>
+
+								[<div class="chapo">(#CHAPO)</div>]
+								[<div class="texte">(#TEXTE|image_reduire)</div>]
+							</article>
+						</BOUCLE_articles>
+					</section>
+				</div><!--/.inner-->
+			</div><!--/.white-->
+		</div><!--/.row-->
+	</div><!--/.container-->
+	
+</body>
+</html>
+</BOUCLE_principale>

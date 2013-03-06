@@ -41,6 +41,10 @@
 					<BOUCLE_articles(ARTICLES){!par date}{0,5}{id_rubrique}>
 						<div class="inner">
 							<article>
+								[<figure class="icono">
+									<a  title="[(#TITRE|attribut_html)]"
+									[href="(#LOGO_ARTICLE|extraire_attribut{src})"]>(#LOGO_ARTICLE|image_passe_partout{700,110}|image_recadre{700,110,center}|image_aplatir{jpg,ffffff}|inserer_attribut{'height',''}|inserer_attribut{'alt',[(#TITRE|attribut_html)]})</a>
+								</figure>]
 								[<p class="date">(#DATE|affdate_simple)</p>]
 								<header class="titraille">
 									<h2>#TITRE</h2>

@@ -1,0 +1,57 @@
+/*
+   blog.css
+   proportio
+   
+   Created by gaspard on 2013-03-05.
+   Copyright 2013 gaspard. All rights reserved.
+*/
+
+body{
+/*	background-image: url('../img/sky.jpg');*/
+	background-color:#c0c0c0;
+	background-repeat: no-repeat;
+	background-position:center center;
+	background-attachment: fixed;
+	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+
+.header{
+	height:15%;
+}
+.white{
+	background-color:#fff;
+}
+.white .inner{
+	padding:20px;
+	position:relative;
+}
+h1{
+	padding-top:100px;
+	font-weight:bolder;
+	text-transform:uppercase;
+}
+h1 span{
+	font-weight:normal;
+}
+h2{
+	font-size:25px;
+}
+.titraille{
+	position:relative;
+}
+.white .date{
+	position:absolute;
+	left:-90px;
+	background-color:#000;
+	color:#fff;
+	padding:2px 5px;
+	text-transform:uppercase;
+}

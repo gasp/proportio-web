@@ -25,6 +25,9 @@ body{
 	margin:0;
 	padding:0;
 }
+figure{
+	margin:0;padding:0;
+}
 
 .header{
 	height:15%;
@@ -44,8 +47,12 @@ h1{
 h1 span{
 	font-weight:normal;
 }
-h2{
+h2,h3{
 	font-size:14px;
+}
+h4{
+	font-weight:normal;
+	color:#ccc;
 }
 .titraille{
 	position:relative;

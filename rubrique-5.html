@@ -21,7 +21,8 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="span5 offset4 white">
+			<div class="span6 offset4 white">
+[
 				<section>
 					<article>
 						<div class="inner">
@@ -35,17 +36,22 @@
 						</div><!--/.inner-->
 					</article>
 				</section>
+]
 				<section>
 					<BOUCLE_articles(ARTICLES){!par date}{0,5}{id_rubrique}>
 						<div class="inner">
 							<article>
+								[<figure class="icono">
+									<a  title="[(#TITRE|attribut_html)]"
+									[href="(#LOGO_ARTICLE|extraire_attribut{src})"]>(#LOGO_ARTICLE|image_passe_partout{700,110}|image_recadre{700,110,center}|image_aplatir{jpg,ffffff}|inserer_attribut{'height',''}|inserer_attribut{'alt',[(#TITRE|attribut_html)]})</a>
+								</figure>]
 								[<p class="date">(#DATE|affdate_simple)</p>]
 								<header class="titraille">
 									<h2>#TITRE</h2>
 								</header>
 
 								[<div class="chapo">(#CHAPO)</div>]
-								[<div class="texte">(#TEXTE|image_reduire)</div>]
+								[<div class="texte">(#TEXTE|image_reduire{700})</div>]
 							</article>
 						</div><!--/.inner-->
 					</BOUCLE_articles>
@@ -54,8 +60,8 @@
 			</div><!--/.white-->
 		</div><!--/.row-->
 	</div><!--/.container-->
-	<script src="#CHEMIN{js/lib/jquery-1.9.1.min.js}"></script>
-	<script src="#CHEMIN{js/blog.js}"></script>
+	[<script src="(#CHEMIN{js/lib/jquery-1.9.1.min.js})"></script>]
+	[<script src="(#CHEMIN{js/blog.js})"></script>]
 </body>
 </html>
 </BOUCLE_principale>

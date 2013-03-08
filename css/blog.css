@@ -6,7 +6,7 @@
    Copyright 2013 gaspard. All rights reserved.
 */
 
-body{
+body.blog{
 	background-image: url('../img/sky.jpg');
 	background-color:#c0c0c0;
 	background-repeat: no-repeat;
@@ -63,7 +63,7 @@ h4{
 .white .date{
 	font-size:10px;
 	position:absolute;
-	margin-top: 10px;
+	margin-top: 15px;
 	left:-70px;
 	background-color:#000;
 	color:#fff;

@@ -1,9 +1,22 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<!--
+	<BOUCLE_fond_home(DOCUMENTS){id_rubrique}{mode=image}{0,1}>
+		#SET{color,#LOGO_DOCUMENT||couleur_extraire}
+		#SET{small_home,#LOGO_DOCUMENT||image_reduire{600,300}|extraire_attribut{src}}
+		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
+		[<div class="small">(#GET{small_home})</div>]
+	</BOUCLE_fond_home>
+
+-->
 [
-<div class="slide home">
+<div class="slide home" data-id_rubrique="#ID_RUBRIQUE"
+	[style="background-image: url('(#GET{small_home})');"]
+	[data-color="(#GET{color})"]>
+
 	<div class="page">
 		<div class="content">
 			<div class="inner">
-				(#TEXTE)
+			(#TEXTE)
 			</div>
 		</div>
 	</div>
@@ -17,7 +30,7 @@
 		#SET{color,#LOGO_DOCUMENT||couleur_extraire}
 		#SET{small,#LOGO_DOCUMENT||image_reduire{600,300}|extraire_attribut{src}}
 		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
-		[<div class="small">#GET{small}</div>]
+		[<div class="small">(#GET{small})</div>]
 	</BOUCLE_fond>
 
 -->
@@ -36,3 +49,4 @@
 </BOUCLE_articles>
 </B_articles>
 <//B_articles>
+</BOUCLE_rubrique>

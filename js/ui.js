@@ -9,7 +9,7 @@
  * slider ok
  * menu ok
  * content stable
- * background unstable
+ * background stable
  * init stable
  */
 
@@ -156,11 +156,13 @@ var background = {
 		var width = $(document).width(),
 			height = $(document).height(),
 			type='article',
-			id=$(slide).data('id_article')
+			id_article= $(slide).data('id_article'),
+			id_rubrique= $(slide).data('id_rubrique'),
 			url = '/spip.php',
 			data = {
 				page: 'background.json',
-				id_article: id,
+				id_article: id_article,
+				id_rubrique: id_rubrique,
 				w: width,
 				h: height
 			};
@@ -197,8 +199,6 @@ $(document).ready(function(){
 		content.place();
 		background.update();
 	})
-	
-	console.log('initialized');
 });
 
 

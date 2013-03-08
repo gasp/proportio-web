@@ -60,11 +60,23 @@
 }
 
 /* inside slide*/
+
+.container .slider .slide .overlay{
+	position:absolute;
+	width:100%;
+	height:100%;
+	opacity:.0001;
+	background-color:gray;
+	z-index:2;
+}
+
 .slider .slide .page{
+	position:absolute;
 	margin-left:66.1%;
 	width:34%;
 	background: transparent url(http://proportio.site/squelettes/img/pix50.png) repeat scroll top left;
 	height:100%;
+	z-index:3;
 }
 
 .slider .slide .page .content{

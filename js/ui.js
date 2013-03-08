@@ -179,7 +179,7 @@ var background = {
 		})
 	},
 	set: function(slide,file){
-		$(slide).css({'background-image':'url('+file+')'});	
+		$('.overlay',slide).css({'background-image':'url('+file+')'}).animate({'opacity':1},200);	
 	}
 
 }

@@ -50,6 +50,9 @@ h1 span{
 h2,h3{
 	font-size:14px;
 }
+h2 a{
+	color:inherit;
+}
 h4{
 	font-weight:normal;
 	color:#ccc;

@@ -197,8 +197,6 @@ $(document).ready(function(){
 		content.place();
 		background.update();
 	})
-	
-	console.log('initialized');
 });
 
 

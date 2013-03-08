@@ -4,8 +4,13 @@
 	z-index:100;
 	padding:0 0 2px 5px;
 }
+#spip-admin a{
+	font: normal normal normal 12px Helvetica,Arial, sans-serif;
+	color:#666;
+	text-decoration:none;
+}
 #spip-admin a:hover{
-	text-shadow: 1px 1px #222;
+	text-shadow: 1px 1px #bbb;
 }
 .spip-admin-boutons{
 	background: none repeat scroll 0 0 #ccc;
@@ -19,8 +24,8 @@
 	transition: all 300ms linear;
 }
 .spip-admin-boutons:hover{
-	opacity:1;
-	background:#669EB5;
+	opacity:.7;
+	background:#eee;
 	padding:0.7em 1em;
 }
 

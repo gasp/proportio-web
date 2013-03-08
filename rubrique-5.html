@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<title>blog | #NOM_SITE_SPIP</title>
+	<title>[(#DESCRIPTIF|attribut_html) | ]#NOM_SITE_SPIP</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="#CHEMIN{css/bootstrap.css}">
 	<link rel="stylesheet" href="#CHEMIN{css/bootstrap-responsive.css}">
 	<link rel="stylesheet" href="#CHEMIN{css/blog.css}">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="/spip.php?page=backend&id_rubrique=5">
 </head>
 <body class="page blog">
 	
@@ -38,23 +39,28 @@
 				</section>
 ]
 				<section>
-					<BOUCLE_articles(ARTICLES){!par date}{0,5}{id_rubrique}>
+					<B_articles>
+					#ANCRE_PAGINATION
+					<BOUCLE_articles(ARTICLES){!par date}{0,5}{id_rubrique}{pagination 1}>
 						<div class="inner">
 							<article>
 								[<figure class="icono">
-									<a  title="[(#TITRE|attribut_html)]"
+									<a title="[(#TITRE|attribut_html)]"
 									[href="(#LOGO_ARTICLE|extraire_attribut{src})"]>(#LOGO_ARTICLE|image_passe_partout{700,110}|image_recadre{700,110,center}|image_aplatir{jpg,ffffff}|inserer_attribut{'height',''}|inserer_attribut{'alt',[(#TITRE|attribut_html)]})</a>
 								</figure>]
 								[<p class="date">(#DATE|affdate_simple)</p>]
 								<header class="titraille">
-									<h2>#TITRE</h2>
+									<h2><a href="#URL_ARTICLE">#TITRE</a></h2>
 								</header>
 
 								[<div class="chapo">(#CHAPO)</div>]
 								[<div class="texte">(#TEXTE|image_reduire{700})</div>]
+								<p><a href="#URL_ARTICLE#comments">&raquo; 5 comments</a></p>
 							</article>
 						</div><!--/.inner-->
 					</BOUCLE_articles>
+						<div class="inner">#PAGINATION</div>
+					</B_articles>
 				</section>
 
 			</div><!--/.white-->

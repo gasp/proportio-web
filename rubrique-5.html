@@ -38,11 +38,13 @@
 				</section>
 ]
 				<section>
-					<BOUCLE_articles(ARTICLES){!par date}{0,5}{id_rubrique}>
+					<B_articles>
+					#ANCRE_PAGINATION
+					<BOUCLE_articles(ARTICLES){!par date}{0,5}{id_rubrique}{pagination 1}>
 						<div class="inner">
 							<article>
 								[<figure class="icono">
-									<a  title="[(#TITRE|attribut_html)]"
+									<a title="[(#TITRE|attribut_html)]"
 									[href="(#LOGO_ARTICLE|extraire_attribut{src})"]>(#LOGO_ARTICLE|image_passe_partout{700,110}|image_recadre{700,110,center}|image_aplatir{jpg,ffffff}|inserer_attribut{'height',''}|inserer_attribut{'alt',[(#TITRE|attribut_html)]})</a>
 								</figure>]
 								[<p class="date">(#DATE|affdate_simple)</p>]
@@ -52,9 +54,12 @@
 
 								[<div class="chapo">(#CHAPO)</div>]
 								[<div class="texte">(#TEXTE|image_reduire{700})</div>]
+								<p><a href="#URL_ARTICLE#comments">&raquo; 5 comments</a></p>
 							</article>
 						</div><!--/.inner-->
 					</BOUCLE_articles>
+						<div class="inner">#PAGINATION</div>
+					</B_articles>
 				</section>
 
 			</div><!--/.white-->

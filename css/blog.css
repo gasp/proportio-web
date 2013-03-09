@@ -78,6 +78,13 @@ body.blog .white .date {
   text-transform: uppercase;
   display: none;
 }
+body.blog .white .date a {
+  color: #fff;
+  font-weight: normal;
+}
+body.blog .white .date a:hover {
+  text-decoration: none;
+}
 body.blog .inner {
   border-bottom: 1px solid #eee;
 }

@@ -38,7 +38,7 @@
 ][(#GET{image})
 <span class='spip_document_#ID_DOCUMENT spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})] spip_lien_ok'[
  style='float:(#ENV{align}|match{left|right});[ width:(#LARGEUR)px;]']>
-[<a href="(#ENV{lien})"[ class="(#ENV{lien_class})"]>]<img src='#URL_DOCUMENT'[ width="(#LARGEUR)"][ height="(#HAUTEUR)"] alt="[(#TITRE|texte_backend)]"[ title="(#TITRE|texte_backend)"] />[(#ENV{lien}|?{</a>})]</span>
+[<a href="(#ENV{lien}|SINON{#FICHIER})"[ class="(#ENV{lien_class})"][ title="(#TITRE|texte_backend)"] rel="lightbox">]<img src="#URL_DOCUMENT" alt="[(#TITRE|texte_backend)]"[ title="(#TITRE|texte_backend)"] /></a></span>
 ][
 
 	(#REM) sinon logo document + lien + alt + title etc

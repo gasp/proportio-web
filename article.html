@@ -17,6 +17,13 @@
 	
 	<div class="container">
 		<div class="row">
+			<div class="span4 offset4 header">
+			<BOUCLE_blog(RUBRIQUES){id_rubrique}{0,1}>
+				<h1><a href="#URL_RUBRIQUE">#DESCRIPTIF</a></h1>
+			</BOUCLE_blog>
+			</div>
+		</div>
+		<div class="row">
 			<div class="span6 offset4 white">
 				<section>
 				<INCLURE{fond=partials/article}{id_article}>

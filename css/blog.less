@@ -79,5 +79,45 @@ body.blog{
 			border-bottom:1px solid #eee;
 	}
 	
+	.comments{
+		.comments-ul{
+			margin-left:100px;
+			
+			.comment-li{
+				list-style-type: none;
+				position:relative;
+				margin-bottom:20px;
+			}
+		}
+		.comment-meta{
+			a.permalink{
+				border: 0;
+				top:-.2em;
+				text-decoration: none;
+				font-size: 2.2em;
+				font-weight: bold;
+				line-height: 1;
+				vertical-align: middle;
+				color: #eee;
+				z-index:1;
+				float:right;
+			}
+			.reviewer{
+				z-index:2;
+			}
+			.avatar{
+				position: absolute;
+				left: -100px;
+				top: 0;
+				border-radius: 1em;
+				border:1px solid #ccc;
+			}
+			.item{
+				display:none;
+			}
+			
+		}
+	}
+	
 }
 @import url("lightbox.css");

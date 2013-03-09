@@ -1,0 +1,42 @@
+<BOUCLE_principale(AUTEURS){id_auteur}>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>[(#TITRE|attribut_html) | ]#NOM_SITE_SPIP</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="stylesheet" href="#CHEMIN{css/bootstrap.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/bootstrap-responsive.css}">
+	<link rel="stylesheet" href="#CHEMIN{css/blog.css}">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="/spip.php?page=backend&id_rubrique=5">
+</head>
+<body class="page auteur">
+<div class="container">
+	<div class="row">
+		<div class="span6 offset4 white">
+			<h1>#NOM_SITE_SPIP</h1>
+			<h2>contributors:</h2>
+			<dl>
+			<BOUCLE_contributors(AUTEURS)>
+				<dt[ (#EXPOSE{class="active"})]><a href="#URL_AUTEUR">#NOM</a></dt>
+				<dd>
+					[<div class="bio">(#BIO)</div>]
+					<BOUCLE_articles(ARTICLES){id_auteur}> </BOUCLE_articles>#TOTAL_BOUCLE articles</B_articles>
+					<BOUCLE_forums(FORUMS){id_auteur}> </BOUCLE_forums>#TOTAL_BOUCLE comments</B_forums>
+				</dd>
+			</BOUCLE_contributors>
+			</dl>
+			<h2>#NOM's blog posts</h2>
+			<ul>
+			<BOUCLE_blog(ARTICLES){id_auteur}{id_rubrique=5}>
+				<li><a href="#URL_ARTICLE"[ title="(#TEXTE|couper|attribut_html)"]>#TITRE</a></li>
+			</BOUCLE_blog>
+			</ul>
+			</BOUCLE_principale>
+		</div>
+	</div><!--/.row-->
+</div><!--/.container-->
+		

@@ -49,14 +49,14 @@
 									[href="(#LOGO_ARTICLE|extraire_attribut{src})"]
 									rel="lightbox">(#LOGO_ARTICLE|image_passe_partout{700,110}|image_recadre{700,110,center}|image_aplatir{jpg,ffffff}|inserer_attribut{'height',''}|inserer_attribut{'alt',[(#TITRE|attribut_html)]})</a>
 								</figure>]
-								[<p class="date">(#DATE|affdate_simple)</p>]
+								[<p class="date"><a href="#URL_ARTICLE">(#DATE|affdate_simple)</a></p>]
 								<header class="titraille">
 									<h2><a href="#URL_ARTICLE">#TITRE</a></h2>
 								</header>
 
 								[<div class="chapo">(#CHAPO)</div>]
 								[<div class="texte">(#TEXTE|image_reduire{700})</div>]
-								[<p><a href="#URL_ARTICLE#comments">&raquo; (#MODELE{comments-nb})</a></p>]
+								[<p>&raquo; (#MODELE{comments-nb})</p>]
 							</article>
 						</div><!--/.inner-->
 					</BOUCLE_articles>

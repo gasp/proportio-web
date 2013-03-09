@@ -105,3 +105,19 @@ body.blog .comments .comment-meta .avatar {
 body.blog .comments .comment-meta .item {
   display: none;
 }
+body.blog .formulaire_forum ul {
+  margin: 0;
+  padding: 0;
+}
+body.blog .formulaire_forum ul li {
+  list-style-type: none;
+}
+body.blog .formulaire_forum textarea {
+  width: 95%;
+}
+body.blog .formulaire_forum p.boutons {
+  text-align: right;
+}
+body.blog .previsu .comment-meta img {
+  display: none;
+}

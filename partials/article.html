@@ -1,0 +1,16 @@
+<BOUCLE_article(ARTICLES){id_article}>
+<div class="inner">
+	<article>
+		[<figure class="icono">
+			(#LOGO_ARTICLE|image_reduire{700}|inserer_attribut{'alt',[(#TITRE|attribut_html)]})</a>
+		</figure>]
+		[<p class="date">(#DATE|affdate_simple)</p>]
+		<header class="titraille">
+			<h2><a href="#URL_ARTICLE">#TITRE</a></h2>
+		</header>
+
+		[<div class="chapo">(#CHAPO)</div>]
+		[<div class="texte">(#TEXTE|image_reduire{700})</div>]
+	</article>
+</div><!--/.inner-->
+</BOUCLE_article>

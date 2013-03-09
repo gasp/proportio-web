@@ -39,6 +39,9 @@ body.blog .white .inner {
 body.blog.home h1 {
   padding-top: 100px;
 }
+body.blog .brand a span {
+  display: none;
+}
 body.blog h1 {
   padding-top: 30px;
   font-weight: bolder;
@@ -77,6 +80,13 @@ body.blog .white .date {
   padding: 2px 10px;
   text-transform: uppercase;
   display: none;
+}
+body.blog .white .date a {
+  color: #fff;
+  font-weight: normal;
+}
+body.blog .white .date a:hover {
+  text-decoration: none;
 }
 body.blog .inner {
   border-bottom: 1px solid #eee;

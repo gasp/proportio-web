@@ -36,10 +36,19 @@ body.blog .white .inner {
   padding: 20px;
   position: relative;
 }
-body.blog h1 {
+body.blog.home h1 {
   padding-top: 100px;
+}
+body.blog h1 {
+  padding-top: 30px;
   font-weight: bolder;
   text-transform: uppercase;
+}
+body.blog h1 a {
+  color: inherit;
+}
+body.blog h1 a:hover {
+  text-decoration: none;
 }
 body.blog h1 span {
   font-weight: normal;

@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="#CHEMIN{css/blog.css}">
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="/spip.php?page=backend&id_rubrique=5">
 </head>
-<body class="page blog">
+<body class="page blog home">
 	
 	<div class="container">
 		<div class="row">
@@ -56,7 +56,7 @@
 
 								[<div class="chapo">(#CHAPO)</div>]
 								[<div class="texte">(#TEXTE|image_reduire{700})</div>]
-								<p><a href="#URL_ARTICLE#comments">&raquo; 5 comments</a></p>
+								[<p><a href="#URL_ARTICLE#comments">&raquo; (#MODELE{comments-nb})</a></p>]
 							</article>
 						</div><!--/.inner-->
 					</BOUCLE_articles>

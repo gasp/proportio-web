@@ -36,10 +36,19 @@ body.blog .white .inner {
   padding: 20px;
   position: relative;
 }
-body.blog h1 {
+body.blog.home h1 {
   padding-top: 100px;
+}
+body.blog h1 {
+  padding-top: 30px;
   font-weight: bolder;
   text-transform: uppercase;
+}
+body.blog h1 a {
+  color: inherit;
+}
+body.blog h1 a:hover {
+  text-decoration: none;
 }
 body.blog h1 span {
   font-weight: normal;
@@ -103,5 +112,21 @@ body.blog .comments .comment-meta .avatar {
   border: 1px solid #ccc;
 }
 body.blog .comments .comment-meta .item {
+  display: none;
+}
+body.blog .formulaire_forum ul {
+  margin: 0;
+  padding: 0;
+}
+body.blog .formulaire_forum ul li {
+  list-style-type: none;
+}
+body.blog .formulaire_forum textarea {
+  width: 95%;
+}
+body.blog .formulaire_forum p.boutons {
+  text-align: right;
+}
+body.blog .previsu .comment-meta img {
   display: none;
 }

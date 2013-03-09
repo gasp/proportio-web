@@ -10,6 +10,12 @@ $(document).ready(function() {
 	})
 	place.date();
 	
+	// bootstrap this
+	$("input.submit").addClass('btn btn-inverse');
+	$(".erreur_message").addClass('alert alert-error');
+	$(".reponse_formulaire_ok").addClass('alert alert-success');
+	$(".previsu .comment").addClass('alert alert-info');
+	
 	
 });
 

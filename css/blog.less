@@ -43,10 +43,20 @@ body.blog{
 		padding:20px;
 		position:relative;
 	}
-	h1{
+	&.home h1{
 		padding-top:100px;
+	}
+	
+	h1{
+		padding-top:30px;
 		font-weight:bolder;
 		text-transform:uppercase;
+		a{
+			color:inherit;
+			&:hover{
+				text-decoration:none;
+			}
+		}
 	}
 	h1 span{
 		font-weight:normal;
@@ -118,6 +128,27 @@ body.blog{
 			
 		}
 	}
-	
+	.formulaire_forum{
+		ul{
+			margin:0;
+			padding:0;
+			li{
+				list-style-type:none;
+			}
+		}
+		textarea{
+			width:95%;
+		}
+		p.boutons{
+			text-align:right;
+		}
+	}
+	.previsu{
+		.comment-meta{
+			img{
+				display:none;
+			}
+		}
+	}
 }
 @import url("lightbox.css");

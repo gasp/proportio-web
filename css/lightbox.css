@@ -3,7 +3,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 98;
   background-color: black;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
   opacity: 0.85;
@@ -15,7 +15,7 @@
   position: absolute;
   left: 0;
   width: 100%;
-  z-index: 10000;
+  z-index: 100;
   text-align: center;
   line-height: 0;
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
@@ -111,12 +111,12 @@
 
 /* line 81, ../sass/lightbox.sass */
 .lb-prev:hover {
-  background: url(../images/prev.png) left 48% no-repeat;
+  background: url(../img/prev.png) left 48% no-repeat;
 }
 
 /* line 85, ../sass/lightbox.sass */
 .lb-next:hover {
-  background: url(../images/next.png) right 48% no-repeat;
+  background: url(../img/next.png) right 48% no-repeat;
 }
 
 /* line 88, ../sass/lightbox.sass */

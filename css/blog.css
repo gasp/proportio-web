@@ -39,6 +39,9 @@ body.blog .white .inner {
 body.blog.home h1 {
   padding-top: 100px;
 }
+body.blog .brand a span {
+  display: none;
+}
 body.blog h1 {
   padding-top: 30px;
   font-weight: bolder;

@@ -5,7 +5,6 @@
 		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
 		[<div class="small">(#GET{small})</div>]
 	</BOUCLE_fond_home>
-
 -->
 <div class="slide home" data-id_rubrique="#ID_RUBRIQUE"
 	[style="background-image: url('(#GET{small})');"]
@@ -30,7 +29,7 @@
 					</div><!--/.article #ID_ARTICLE-->
 				</BOUCLE_blog>
 				</div><!--/.section .blog-->
-				<BOUCLE_pin(ARTICLES){id_mot=1}{par num titre, titre}>
+				<BOUCLE_pin(ARTICLES){id_mot=1}{par num titre, titre}{lang}>
 				<div class="section pinned">
 					<div class="article">
 						<div class="header">
@@ -45,7 +44,7 @@
 				</BOUCLE_pin>
 				
 				
-				<div clsass="social">
+				<div class="social">
 					<a href="http://pinterest.com/trystudio/inspiration-proportio/" title="what inspires us">inspiration</a> |
 					<a href="" title="contact us">contact</a> |
 					<a href="https://www.facebook.com/proportio" title="follow us on facebook">facebook</a> |

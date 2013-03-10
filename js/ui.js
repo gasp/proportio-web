@@ -15,9 +15,9 @@
 
 var slider = {
 	data: {
-		numberOfSlides:0
+		numberOfSlides: 0
 	},
-	init: function(){
+	init: function () {
 		$(".container").iosSlider({
 			snapToChildren: true,
 			desktopClickDrag: true, // really, this has to be false in prod
@@ -25,54 +25,54 @@ var slider = {
 			navNextSelector: $("#nav .right a"),
 			navPrevSelector: $("#nav .left a"),
 			unselectableSelector: $("#menu, #bullet"),
-			onSlideChange: function(sl){
-				slider.change(sl)
+			onSlideChange: function (sl) {
+				slider.change(sl);
 			},
-			onSliderLoaded: function(sl){
+			onSliderLoaded: function (sl) {
 				slider.data = sl.data;
 			}
 		});
 		
 		// nav
-		if(slider.data.numberOfSlides == 1)
+		if (slider.data.numberOfSlides === 1) {
 			$("#nav .right a").hide();
+        }
 		$("#nav .left a").hide();
-		$("#nav a").bind("click",function(e){
+		$("#nav a").bind("click", function (e) {
 			e.preventDefault();
 			return false;
 		});
 	},
-	update: function(){
+	update: function () {
 		/* call to rerender iosSlider
 		$(".iosSlider1").iosSlider("update");
 		*/
 	},
-	change: function(sl){
-		if(sl.currentSlideNumber > 1) $("#nav .left a").fadeIn();
+	change: function (sl) {
+		if (sl.currentSlideNumber > 1) $("#nav .left a").fadeIn();
 		else $("#nav .left a").fadeOut();
-		if(sl.currentSlideNumber < slider.data.numberOfSlides) $("#nav .right a").fadeIn();
+		if (sl.currentSlideNumber < slider.data.numberOfSlides) $("#nav .right a").fadeIn();
 		else $("#nav .right a").fadeOut();
 	}
 };
 
 var menu = {
-	init: function(){
+	init: function () {
 		// display a bullet under the menu
-		$("#menu li a.on").each(function(){
+		$("#menu li a.on").each(function () {
 			left = parseInt($(this).context.offsetLeft+($(this).width()/2));
 			$('#bullet').css({left:left});
 		});
-		$("#menu li a").bind('mouseover',function(){
+		$("#menu li a").bind('mouseover',function () {
 			left = parseInt($(this).context.offsetLeft+($(this).width()/2));
 			$('#bullet').stop().animate({left:left});
-		}).bind('mouseout',function(){
+		}).bind('mouseout',function () {
 			try{
 				window.killTimeout(menutempo);
-			}
-			catch(e){}
-			menutempo = window.setTimeout(function(){
+			} catch (e) {}
+			menutempo = window.setTimeout(function () {
 				if($.timers.length<1){
-					$("#menu li a.on").each(function(){
+					$("#menu li a.on").each(function () {
 						left = parseInt($(this).context.offsetLeft+($(this).width()/2));
 						$('#bullet').stop().animate({left:left});
 					});
@@ -87,7 +87,7 @@ var menu = {
 };
 
 var content = {
-	init: function(){
+	init: function () {
 		content.place(true);
 	},
 	place: function(animate){
@@ -117,7 +117,7 @@ var content = {
 
 var background = {
 	tempo: null,
-	init: function(){
+	init: function () {
 		$(".slider .slide").each(function(i){
 			background.colorize(this);
 			background.fetch(this);
@@ -145,7 +145,7 @@ var background = {
 		if(background.tempo !== null){
 			window.clearTimeout(background.tempo);
 		}
-		background.tempo = window.setTimeout(function(){
+		background.tempo = window.setTimeout(function () {
 			$(".slider .slide").each(function(i){
 				background.fetch(this);
 			});
@@ -187,15 +187,15 @@ var background = {
 }
 
 
-$(document).ready(function(){
+$(document).ready(function () {
 	slider.init();
 	background.init();
-	var t = window.setTimeout(function(){
+	var t = window.setTimeout(function () {
 		menu.init();
 		content.init();
 	},300);
 	
-	$(window).bind('resize',function(){
+	$(window).bind('resize',function () {
 		content.place();
 		background.update();
 	})
@@ -203,5 +203,5 @@ $(document).ready(function(){
 
 
 if(typeof console === "undefined"){
-	var console = {log: function(){},dir:function(){}};
+	var console = {log: function () {}, dir: function () {}};
 }

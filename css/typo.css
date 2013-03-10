@@ -1,10 +1,7 @@
 body{
 	font: normal normal normal 11pt Helvetica, Arial, sans-serif;
 	color:#fff;
-}
-
-#menu{
-	text-shadow: 0 1px #999;
+	line-height:1.3em;
 }
 a{
 	color:#fff;
@@ -12,9 +9,18 @@ a{
 	text-shadow: 0 1px #444;
 }
 
+@media (max-width: 1024px) {
+	body{
+		font-size:10pt;
+	}
+}
+#menu{
+	text-shadow: 0 1px #999;
+}
+
 
 .section{
-	background: transparent url(http://proportio.site/squelettes/img/pix50.png) repeat scroll top left;
+	background: transparent url(../img/pix50.png) repeat scroll top left;
 }
 
 
@@ -40,4 +46,12 @@ a{
 
 .pinned{
 	margin-top:1em;
+}
+
+.social{
+	margin-top:.5em;
+}
+.social a{
+	display:inline-block;
+	margin:.3em;
 }

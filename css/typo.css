@@ -9,6 +9,20 @@ a{
 	text-shadow: 0 1px #444;
 }
 
+.clearfix {
+	*zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: "";
+	line-height: 0;
+}
+.clearfix:after {
+	clear: both;
+}
+
+
 @media (max-width: 1024px) {
 	body{
 		font-size:10pt;
@@ -22,7 +36,6 @@ a{
 .section{
 	background: transparent url(../img/pix50.png) repeat scroll top left;
 }
-
 
 .article figure{
 	margin:0;
@@ -40,15 +53,27 @@ a{
 	border-top:1px solid #fff;
 	border-bottom:1px solid #fff;
 }
-.article .introduction{
+.article .introduction, .article .texte{
 	padding:5px 10px 10px 10px;
 }
 
 .pinned{
 	margin-top:1em;
 }
+.dual{
+	display:relative;
+}
+.dual .section{
+	float:left;
+	width:45%;
+	margin-left:10%;
+}
+.dual .section:first-child{
+	margin-left:0;
+}
 
 .social{
+	clear:both;
 	margin-top:.5em;
 }
 .social a{

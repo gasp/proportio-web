@@ -95,21 +95,23 @@ var content = {
 		var height = $(document).height(),
 			width = $(document).width()
 			space = Math.max(height-$('.content').height()-20,30);
-		
 			/*
 				TODO move this to media queries
 			*/
 		
-		if(width>800){
-			$('.page').show();
+		if(width>640){
 			if(animate === true)
-				$('.content').animate({paddingTop:space},"fast");
+				$('.content').hide().css({paddingTop:space}).fadeIn();
 			else
-				$('.content').css({paddingTop:space});
-
+				$('.content').css({paddingTop:space}).show();
+			// reset css if has been modified
+			$('.page').css({width: '34%',marginLeft: '66.1%'}).show();
+			$('.container').css({overflowY: 'hidden'});
 		}
 		else{
-			$('.page').hide()
+			$('.page').css({width: '100%',marginLeft: 0});
+			$('.content').css({paddingTop: '100px'}).show();
+			$('.container').css({overflowY: 'auto'});
 		}
 	}
 }
@@ -195,10 +197,10 @@ $(document).ready(function () {
 		content.init();
 	},300);
 	
-	$(window).bind('resize',function () {
+	$(window).bind('orientationchange resize',function () {
 		content.place();
 		background.update();
-	})
+	});
 });
 
 

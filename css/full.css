@@ -5,7 +5,7 @@
    Created by gaspard on 2013-02-01
 */
 
-@import url("typo.css");
+@import url("typo.css?v=2");
 
 
 /* main */
@@ -69,7 +69,9 @@
 
 .slider .slide .page .content{
 	bottom:0px;
-	max-width:450px;/*
+	max-width:450px;
+	display:none;
+	/*
 		TODO use hack here
 	*/
 }
@@ -92,11 +94,11 @@
 }
 #nav a span{display:none}
 #nav .right a{
-	right:10px;
+	right:5px;
 	background-image:url(../img/arr_right.png);
 }
 #nav .left a{
-	left:10px;
+	left:5px;
 	background-image: url(../img/arr_left.png);
 }
 

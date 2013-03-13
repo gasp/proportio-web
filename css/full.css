@@ -62,16 +62,23 @@
 /* inside slide*/
 
 .container .slider .slide .overlay{
+	
 	position:absolute;
 	width:100%;
 	height:100%;
-	opacity:.0001;
+	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	
+	display:none;
+	
 /*
+	display none is better than 
+	opacity:.0001;
 	filter: alpha(opacity=1);
-	if I keep this filter, 
-	fadeIn might not apply on it
-	and the background would be loaded for nothing
-
+	because i fadeIn()
 */
 	z-index:2;
 }

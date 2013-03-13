@@ -183,7 +183,11 @@ var background = {
 		})
 	},
 	set: function(slide,file){
-		$('.overlay',slide).css({'background-image':'url('+file+')'}).animate({'opacity':1},200);	
+		var im = new Image();
+		im.src=file;
+		im.onload = function () {
+			$('.overlay',slide).css({'background-image':'url('+file+')'}).hide().fadeIn();	
+		}
 	}
 
 }

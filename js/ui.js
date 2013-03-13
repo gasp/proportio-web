@@ -99,16 +99,19 @@ var content = {
 				TODO move this to media queries
 			*/
 		
-		if(width>800){
+		if(width>640){
 			if(animate === true)
 				$('.content').hide().css({paddingTop:space}).fadeIn();
 			else
 				$('.content').css({paddingTop:space}).show();
-				
-			$('.page').show();
+			// reset css if has been modified
+			$('.page').css({width: '34%',marginLeft: '66.1%'}).show();
+			$('.container').css({overflowY: 'hidden'});
 		}
 		else{
-			$('.page').hide()
+			$('.page').css({width: '100%',marginLeft: 0});
+			$('.content').css({paddingTop: '100px'}).show();
+			$('.container').css({overflowY: 'auto'});
 		}
 	}
 }

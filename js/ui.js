@@ -95,18 +95,17 @@ var content = {
 		var height = $(document).height(),
 			width = $(document).width()
 			space = Math.max(height-$('.content').height()-20,30);
-		
 			/*
 				TODO move this to media queries
 			*/
 		
 		if(width>800){
-			$('.page').show();
 			if(animate === true)
-				$('.content').animate({paddingTop:space},"fast");
+				$('.content').hide().css({paddingTop:space}).fadeIn();
 			else
-				$('.content').css({paddingTop:space});
-
+				$('.content').css({paddingTop:space}).show();
+				
+			$('.page').show();
 		}
 		else{
 			$('.page').hide()

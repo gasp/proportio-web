@@ -69,7 +69,9 @@
 
 .slider .slide .page .content{
 	bottom:0px;
-	max-width:450px;/*
+	max-width:450px;
+	display:none;
+	/*
 		TODO use hack here
 	*/
 }

@@ -194,10 +194,10 @@ $(document).ready(function () {
 		content.init();
 	},300);
 	
-	$(window).bind('resize',function () {
+	$(window).bind('orientationchange resize',function () {
 		content.place();
 		background.update();
-	})
+	});
 });
 
 

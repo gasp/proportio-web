@@ -23,7 +23,6 @@ a{
 	background: transparent url(../img/pix50.png) repeat scroll top left;
 }
 
-
 .article figure{
 	margin:0;
 }
@@ -40,7 +39,7 @@ a{
 	border-top:1px solid #fff;
 	border-bottom:1px solid #fff;
 }
-.article .introduction{
+.article .introduction, .article .texte{
 	padding:5px 10px 10px 10px;
 }
 

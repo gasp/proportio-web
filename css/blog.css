@@ -118,8 +118,9 @@ body.blog .comments .comment-meta .avatar {
   position: absolute;
   left: -100px;
   top: 0;
-  border-radius: 1em;
-  border: 1px solid #ccc;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 1px 0px #ccc;
+  box-shadow: 0px 0px 1px 0px #ccc;
 }
 body.blog .comments .comment-meta .item {
   display: none;

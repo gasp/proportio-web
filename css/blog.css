@@ -70,6 +70,9 @@ body.blog h4 {
 body.blog .titraille {
   position: relative;
 }
+body.blog .white.paginated .readme {
+  display: none;
+}
 body.blog .white .date {
   font-size: 10px;
   position: absolute;

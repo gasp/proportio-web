@@ -3,8 +3,10 @@
 	proportio
 
 	Created by gaspard on 2013-03-05.
-	Copyright 2013 gaspard. All rights reserved.
 */
+
+@white: #fff;
+@light: darken(@white,10);
 
 body.blog{
 	// basic styles
@@ -87,14 +89,15 @@ body.blog{
 		margin-top: 15px;
 		left:-70px;
 		background-color:#000;
-		color:#fff;
+		color:@light;
 		padding:2px 10px;
 		text-transform:uppercase;
 		display:none;
 		a{
-			color:#fff;
+			color:@light;
 			font-weight:normal;
 			&:hover{
+				color:@white;
 				text-decoration:none;
 			}
 		}

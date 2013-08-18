@@ -16,7 +16,7 @@
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 </head>
-<body class="page blog home">
+<body class="page blog [ p(#ENV{debut_articles}|sinon{home})]">
 	
 	<div class="container">
 		<div class="row">
@@ -28,9 +28,9 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="span6 offset4 white">
+			<div class="span6 offset4 white[ p(#ENV{debut_articles}) paginated]">
 [
-				<section>
+				<section class="readme">
 					<article>
 						<div class="inner">
 							<p class="date">Readme</p>

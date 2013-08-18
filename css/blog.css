@@ -4,7 +4,6 @@
 	proportio
 
 	Created by gaspard on 2013-03-05.
-	Copyright 2013 gaspard. All rights reserved.
 */
 body.blog {
   background-image: url('../img/sky.jpg');
@@ -36,7 +35,7 @@ body.blog .white .inner {
   padding: 20px;
   position: relative;
 }
-body.blog.home h1 {
+body.blog.phome h1 {
   padding-top: 100px;
 }
 body.blog .brand a span {
@@ -70,22 +69,26 @@ body.blog h4 {
 body.blog .titraille {
   position: relative;
 }
+body.blog .white.paginated .readme {
+  display: none;
+}
 body.blog .white .date {
   font-size: 10px;
   position: absolute;
   margin-top: 15px;
   left: -70px;
   background-color: #000;
-  color: #fff;
+  color: #e6e6e6;
   padding: 2px 10px;
   text-transform: uppercase;
   display: none;
 }
 body.blog .white .date a {
-  color: #fff;
+  color: #e6e6e6;
   font-weight: normal;
 }
 body.blog .white .date a:hover {
+  color: #ffffff;
   text-decoration: none;
 }
 body.blog .inner {
@@ -118,8 +121,9 @@ body.blog .comments .comment-meta .avatar {
   position: absolute;
   left: -100px;
   top: 0;
-  border-radius: 1em;
-  border: 1px solid #ccc;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 1px 0px #ccc;
+  box-shadow: 0px 0px 1px 0px #ccc;
 }
 body.blog .comments .comment-meta .item {
   display: none;

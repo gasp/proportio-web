@@ -32,7 +32,7 @@ var slider = {
 				slider.data = sl.data;
 			}
 		});
-		
+
 		// nav
 		if (slider.data.numberOfSlides === 1) {
 			$("#nav .right a").hide();
@@ -42,6 +42,18 @@ var slider = {
 			e.preventDefault();
 			return false;
 		});
+
+		// deep linking
+		var goto = window.location.hash.toString().substring(1);
+		if(goto.length>0){
+			var desti = null;
+			$(".slider .slide").each(function(i){
+				if($(this).hasClass(goto))
+					desti = i;
+			});
+			// console.log("desti", desti);
+			$(".container").iosSlider('goToSlide', parseInt(desti)+1);
+		}
 	},
 	update: function () {
 		/* call to rerender iosSlider

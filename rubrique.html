@@ -29,7 +29,7 @@
 <div id="menu">
 	<h1><a href="#URL_RUBRIQUE{#ID_SECTEUR}"><span>proportio</span><img alt="proportio"[ src="(#CHEMIN{img/proportio.png})"]></a></h1>
 	<ul>
-		<BOUCLE_mainnav(RUBRIQUES){id_parent=#ID_SECTEUR}{'<span>|</span>'}>
+		<BOUCLE_mainnav(RUBRIQUES){id_parent=#ID_SECTEUR}{par num titre}{'<span>|</span>'}>
 		<li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>#TITRE</a></li>
 		</BOUCLE_mainnav>
 	</ul>

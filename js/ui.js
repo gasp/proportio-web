@@ -95,6 +95,10 @@ var menu = {
 		var height = $(document).height();
 		$("#nav .left").css({top:(height/2)-10});
 		$("#nav .right").css({top:(height/2)-10});
+
+		$(".navbar-toggle").on("click",function(){
+			$("#menu.mini ul,#menu.mini .lang").toggle(); // the alt menu
+		})
 	}
 };
 
@@ -116,14 +120,38 @@ var content = {
 				$('.content').hide().css({paddingTop:space}).fadeIn();
 			else
 				$('.content').css({paddingTop:space}).show();
-			// reset css if has been modified
+			// reset css if has been modified by <640 version
+			$('.section.blog .article').show()
 			$('.page').css({width: '34%',marginLeft: '66.1%'}).show();
 			$('.container').css({overflowY: 'hidden'});
+			$('#menu').removeClass('mini');
+			$('#menu ul, #menu .lang').show();
 		}
 		else{
+			// hide menu > find some way to display it
+			$('#menu').addClass('mini')
+			$('#bullet').hide();
+
+			// show only the first blog post on home page
+			$('.section.blog .article').hide()
+			$($('.section.blog .article').get(0)).show()
+
 			$('.page').css({width: '100%',marginLeft: 0});
-			$('.content').css({paddingTop: '100px'}).show();
+			$('.content').css({paddingTop: '30px'}).show();
 			$('.container').css({overflowY: 'auto'});
+
+			// fix height with scroll
+			// dirty, please recode this
+			var ch = $('.container').height();
+			$('.slide.article .inner').each(function(){
+				console.log(this,$(this).height(),ch);
+				if($(this).height() > (ch - 100)){
+					$(this).css({
+						height: (ch - 40),
+						overflowY: 'auto'
+					});
+				}
+			});
 		}
 	}
 }

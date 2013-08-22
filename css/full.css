@@ -222,7 +222,7 @@
 #menu.mini li a{
 	display:block;
 	height:auto;
-	font-size:12pt;
+	font-size:14pt;
 	padding:.5em;
 	border-bottom:1px solid #ccc;
 }
@@ -234,16 +234,16 @@
 }
 #menu.mini .lang {
 	top:0;
-	font-size:12pt;
+	font-size:14pt;
 	height:50px;
 	padding:0;
 }
 #menu.mini .lang .inner{
 	padding:1em;
-
 }
-
-
+#menu.mini .lang .inner a{
+	padding:0 .5em;
+}
 
 
 

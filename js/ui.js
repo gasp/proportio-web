@@ -144,7 +144,7 @@ var content = {
 			// dirty, please recode this
 			var ch = $('.container').height();
 			$('.slide.article .inner').each(function(){
-				console.log(this,$(this).height(),ch);
+//				console.log(this,$(this).height(),ch);
 				if($(this).height() > (ch - 100)){
 					$(this).css({
 						height: (ch - 40),
@@ -215,6 +215,7 @@ var background = {
 			url: url,
 			data: data,
 			success: function(d){
+				if(d.file != null)
 				background.set(slide,d.file);
 			},
 			error: function(d,e){

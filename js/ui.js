@@ -69,7 +69,10 @@ var slider = {
 
 		// change url #hash
 		var id_article = $(sl.currentSlideObject).data('id_article');
-		window.location.hash = "#art"+id_article
+		if(typeof id_article === "undefined")
+			window.location.hash = "";
+		else
+			window.location.hash = "#art" + id_article;
 	}
 };
 

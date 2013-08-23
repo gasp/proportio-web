@@ -1,6 +1,6 @@
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
 <!--
-	<BOUCLE_fond_home(DOCUMENTS){id_rubrique}{mode=image}{0,1}>
+	<BOUCLE_fond_home(DOCUMENTS){id_rubrique}{0,1}>
 		#SET{color,#LOGO_DOCUMENT||couleur_extraire}
 		#SET{small_home,#LOGO_DOCUMENT||image_reduire{600,300}|extraire_attribut{src}}
 		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
@@ -34,7 +34,8 @@
 <B_articles>
 <BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}>
 <!--
-	<BOUCLE_fond(DOCUMENTS){id_article}{mode=image}{0,1}>
+	<BOUCLE_fond(DOCUMENTS){id_article}{0,1}>
+	<p>#FICHIER</p>
 		#SET{color,#LOGO_DOCUMENT||couleur_extraire}
 		#SET{small,#LOGO_DOCUMENT||image_reduire{600,300}|extraire_attribut{src}}
 		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
@@ -42,7 +43,8 @@
 	</BOUCLE_fond>
 
 -->
-<div class="slide article art#ID_ARTICLE" data-id_article="#ID_ARTICLE"
+<div class="slide article art#ID_ARTICLE"
+	data-id_article="#ID_ARTICLE"
 	[style="background-image: url('(#GET{small})');"]
 	[data-color="(#GET{color})"]>
 	<div class="page">

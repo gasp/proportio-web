@@ -1,9 +1,9 @@
-<BOUCLE_principale(RUBRIQUES){id_rubrique}>
+<BOUCLE_principale(MOTS){id_mot}>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<title>[(#DESCRIPTIF|attribut_html) | ]#NOM_SITE_SPIP</title>
+	<title>[(#TITRE|attribut_html) | ]#NOM_SITE_SPIP</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
@@ -15,9 +15,11 @@
 	<!--[if IE]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+	<BOUCLE_fond(RUBRIQUES){id_secteur}{racine}>
 	<style>
 	body.blog{	[	background-image: url('(#LOGO_RUBRIQUE|extraire_attribut{src})');]	}
 	</style>
+	</BOUCLE_fond>
 </head>
 <body class="page blog [ p(#ENV{debut_articles}|sinon{home})]">
 	
@@ -27,7 +29,10 @@
 				<a href="#URL_RUBRIQUE{2}"><span>proportio</span><img alt="proportio"[ src="(#CHEMIN{img/proportio.png})"]></a>
 			</div>
 			<div class="span6 offset2 header">
-				<h1>#DESCRIPTIF</h1>
+				<BOUCLE_blog(RUBRIQUES){id_rubrique=5}{0,1}>
+					<h1><a href="#URL_RUBRIQUE">[(#DESCRIPTIF|textebrut)]<span>// #_principale:TITRE</span></a></h1>
+					[<h2>(#_principale:DESCRIPTIF|textebrut)</h2>]
+				</BOUCLE_blog>
 			</div>
 		</div>
 		<div class="row">
@@ -50,7 +55,7 @@
 				<section>
 					<B_articles>
 					#ANCRE_PAGINATION
-					<BOUCLE_articles(ARTICLES){!par date}{0,5}{id_rubrique}{pagination 5}>
+					<BOUCLE_articles(ARTICLES){id_mot}{!par date}{0,5}{pagination 5}>
 						<div class="inner">
 							<article>
 								[<figure class="icono">
@@ -66,6 +71,14 @@
 
 								[<div class="chapo">(#CHAPO)</div>]
 								[<div class="texte">(#TEXTE|image_reduire{700})</div>]
+								<B_tags>
+								<div class="tags">
+								<BOUCLE_tags(MOTS){id_article}{!id_groupe IN (1,2)}>
+									<a href="#URL_MOT"
+										class="label [groupe(#ID_GROUPE|=={6}) label-inverse]">#TITRE</a>
+								</BOUCLE_tags>
+								</B_tags>
+								</div>
 								[<p>&raquo; (#MODELE{comments-nb})</p>]
 							</article>
 						</div><!--/.inner-->

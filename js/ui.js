@@ -54,6 +54,10 @@ var slider = {
 			// console.log("desti", desti);
 			$(".container").iosSlider('goToSlide', parseInt(desti)+1);
 		}
+
+		// read if there is a need to inverse the menu
+		if($($(".container .slide").get(0)).hasClass("inverse"))
+			menu.inverse(true)
 	},
 	update: function () {
 		/* call to rerender iosSlider
@@ -73,6 +77,11 @@ var slider = {
 			window.location.hash = "";
 		else
 			window.location.hash = "#art" + id_article;
+
+		// read if there is a need to inverse the menu
+		if($(sl.currentSlideObject).hasClass('inverse'))
+			menu.inverse(true);
+		else menu.inverse(false);
 	}
 };
 
@@ -107,6 +116,12 @@ var menu = {
 		$(".navbar-toggle").on("click",function(){
 			$("#menu.mini ul,#menu.mini .lang").toggle(); // the alt menu
 		})
+	},
+	inverse: function (is) {
+		if(is)
+			$("#menu").addClass("inverse");
+		else
+			$("#menu").removeClass("inverse");
 	}
 };
 

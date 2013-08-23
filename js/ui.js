@@ -118,10 +118,18 @@ var menu = {
 		})
 	},
 	inverse: function (is) {
-		if(is)
+		if(is){
 			$("#menu").addClass("inverse");
-		else
+			if(!$("#menu h1 img").attr('src').match(/inverse\.svg$/)){ // change only if needed
+				$("#menu h1 img").attr('src',"/squelettes/img/logoproportio-inverse.svg");
+			}
+		}
+		else{ // isn't
 			$("#menu").removeClass("inverse");
+			if($("#menu h1 img").attr('src').match(/inverse\.svg$/)){ // change only if needed
+				$("#menu h1 img").attr('src',"/squelettes/img/logoproportio.svg");
+			}
+		}
 	}
 };
 

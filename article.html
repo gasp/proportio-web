@@ -15,6 +15,11 @@
 	<!--[if IE]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+		<BOUCLE_fond(RUBRIQUES){id_secteur}{racine}>
+		<style>
+		body.blog{	[	background-image: url('(#LOGO_RUBRIQUE|extraire_attribut{src})');]	}
+		</style>
+		</BOUCLE_fond>
 </head>
 <body class="page blog">
 	

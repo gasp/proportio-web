@@ -61,10 +61,15 @@ var slider = {
 		*/
 	},
 	change: function (sl) {
+		// show/hide arrows
 		if (sl.currentSlideNumber > 1) $("#nav .left a").fadeIn();
 		else $("#nav .left a").fadeOut();
 		if (sl.currentSlideNumber < slider.data.numberOfSlides) $("#nav .right a").fadeIn();
 		else $("#nav .right a").fadeOut();
+
+		// change url #hash
+		var id_article = $(sl.currentSlideObject).data('id_article');
+		window.location.hash = "#art"+id_article
 	}
 };
 

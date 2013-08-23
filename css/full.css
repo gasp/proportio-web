@@ -127,7 +127,6 @@
 	background-image: url(../img/arr_left.png);
 }
 
-
 #menu{
 	width:96%;
 	position:fixed;
@@ -257,3 +256,6 @@
 /*	background-color:pink;*/
 }
 
+#menu.inverse #bullet{
+	color:#000;
+}

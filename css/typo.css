@@ -28,8 +28,15 @@ a{
 		font-size:10pt;
 	}
 }
+
 #menu{
 	text-shadow: 0 1px #999;
+}
+#menu.inverse ul,#menu.inverse ul a{
+	color:#000;
+}
+#menu.inverse{
+	text-shadow: none;
 }
 
 

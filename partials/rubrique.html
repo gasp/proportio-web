@@ -1,15 +1,18 @@
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
 <!--
-	<BOUCLE_fond_home(DOCUMENTS){id_rubrique}{mode=image}{0,1}>
+	<BOUCLE_fond_home(DOCUMENTS){id_rubrique}{0,1}>
 		#SET{color,#LOGO_DOCUMENT||couleur_extraire}
 		#SET{small_home,#LOGO_DOCUMENT||image_reduire{600,300}|extraire_attribut{src}}
 		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
 		[<div class="small">(#GET{small_home})</div>]
 	</BOUCLE_fond_home>
-
+	#SET{inverserub,normal}
+	<BOUCLE_noirrub(MOTS){id_rubrique}{par hasard}{id_mot=3}{tous}>
+		#SET{inverserub,inverse}
+	</BOUCLE_noirrub>
 -->
 [
-<div class="slide home" data-id_rubrique="#ID_RUBRIQUE"
+<div class="slide home[ (#GET{inverserub})]" data-id_rubrique="#ID_RUBRIQUE"
 	[style="background-image: url('(#GET{small_home})');"]
 	[data-color="(#GET{color})"]>
 
@@ -34,15 +37,19 @@
 <B_articles>
 <BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}>
 <!--
-	<BOUCLE_fond(DOCUMENTS){id_article}{mode=image}{0,1}>
+	<BOUCLE_fond(DOCUMENTS){id_article}{0,1}>
+	<p>#FICHIER</p>
 		#SET{color,#LOGO_DOCUMENT||couleur_extraire}
 		#SET{small,#LOGO_DOCUMENT||image_reduire{600,300}|extraire_attribut{src}}
-		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
+		[<div class="background">#(#LOGO_DOCUMENT||couleur_extraire)</div>]
 		[<div class="small">(#GET{small})</div>]
 	</BOUCLE_fond>
 
 -->
-<div class="slide article art#ID_ARTICLE" data-id_article="#ID_ARTICLE"
+
+
+<div class="slide article art#ID_ARTICLE<BOUCLE_noir(MOTS){id_article}{par hasard}{id_mot=3}{tous}> inverse</BOUCLE_noir>"
+	data-id_article="#ID_ARTICLE"
 	[style="background-image: url('(#GET{small})');"]
 	[data-color="(#GET{color})"]>
 	<div class="page">
@@ -51,7 +58,7 @@
 				<div class="section">
 					<div class="article">
 						<div class="header">
-							<h3><a href="#URL_ARTICLE">#TITRE</a></h3>
+							<h3><a[ href="(#URL_RUBRIQUE)#art#ID_ARTICLE"]>#TITRE</a></h3>
 						</div>
 						<div class="texte">(#TEXTE)</div>
 					</div><!--/.article-->

@@ -140,17 +140,26 @@ var content = {
 	place: function(animate){
 		//place bottom text
 		var height = $(document).height(),
-			width = $(document).width()
-			space = Math.max(height-$('.content').height()-20,30);
+			width = $(document).width(),
+			$content = $('.content');
+
+		$content.each(function(){
+			var space = Math.max(height-$(this).height(),30);
+			console.log(this, height,$(this).height(),space)
+			if(width>640){
+				if(animate === true)
+					$(this).hide().css({paddingTop:space}).fadeIn();
+				else
+					$(this).css({paddingTop:space}).show();
+			}
+		});
+
 			/*
 				TODO move this to media queries
 			*/
 		
 		if(width>640){
-			if(animate === true)
-				$('.content').hide().css({paddingTop:space}).fadeIn();
-			else
-				$('.content').css({paddingTop:space}).show();
+
 			// reset css if has been modified by <640 version
 			$('.section.blog .article').show()
 			$('.page').css({width: '34%',marginLeft: '66.1%'}).show();

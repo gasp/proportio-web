@@ -34,6 +34,7 @@ a{
 }
 #menu.inverse ul,#menu.inverse ul a{
 	color:#000;
+	text-shadow: none;
 }
 #menu.inverse{
 	text-shadow: none;

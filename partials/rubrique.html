@@ -6,8 +6,9 @@
 		[<div class="background">(#LOGO_DOCUMENT||couleur_extraire)</div>]
 		[<div class="small">(#GET{small_home})</div>]
 	</BOUCLE_fond_home>
+	[(#REM) using a SET because the BOUCLE doesn't feet into TEXTE brackets]
 	#SET{inverserub,normal}
-	<BOUCLE_noirrub(MOTS){id_rubrique}{par hasard}{id_mot=3}{tous}>
+	<BOUCLE_noirrub(MOTS){id_rubrique}{id_mot=3}{tous}>
 		#SET{inverserub,inverse}
 	</BOUCLE_noirrub>
 -->
@@ -48,7 +49,7 @@
 -->
 
 
-<div class="slide article art#ID_ARTICLE<BOUCLE_noir(MOTS){id_article}{par hasard}{id_mot=3}{tous}> inverse</BOUCLE_noir>"
+<div class="slide article art#ID_ARTICLE<BOUCLE_noir(MOTS){id_article}{id_mot=3}{tous}> inverse</BOUCLE_noir>"
 	data-id_article="#ID_ARTICLE"
 	[style="background-image: url('(#GET{small})');"]
 	[data-color="(#GET{color})"]>

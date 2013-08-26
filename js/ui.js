@@ -54,6 +54,10 @@ var slider = {
 			// console.log("desti", desti);
 			$(".container").iosSlider('goToSlide', parseInt(desti)+1);
 		}
+
+		// read if there is a need to inverse the menu
+		if($($(".container .slide").get(0)).hasClass("inverse"))
+			menu.inverse(true)
 	},
 	update: function () {
 		/* call to rerender iosSlider
@@ -61,10 +65,23 @@ var slider = {
 		*/
 	},
 	change: function (sl) {
+		// show/hide arrows
 		if (sl.currentSlideNumber > 1) $("#nav .left a").fadeIn();
 		else $("#nav .left a").fadeOut();
 		if (sl.currentSlideNumber < slider.data.numberOfSlides) $("#nav .right a").fadeIn();
 		else $("#nav .right a").fadeOut();
+
+		// change url #hash
+		var id_article = $(sl.currentSlideObject).data('id_article');
+		if(typeof id_article === "undefined")
+			window.location.hash = "";
+		else
+			window.location.hash = "#art" + id_article;
+
+		// read if there is a need to inverse the menu
+		if($(sl.currentSlideObject).hasClass('inverse'))
+			menu.inverse(true);
+		else menu.inverse(false);
 	}
 };
 
@@ -99,6 +116,20 @@ var menu = {
 		$(".navbar-toggle").on("click",function(){
 			$("#menu.mini ul,#menu.mini .lang").toggle(); // the alt menu
 		})
+	},
+	inverse: function (is) {
+		if(is){
+			$("#menu").addClass("inverse");
+			if(!$("#menu h1 img").attr('src').match(/inverse\.svg$/)){ // change only if needed
+				$("#menu h1 img").attr('src',"/squelettes/img/logoproportio-inverse.svg");
+			}
+		}
+		else{ // isn't
+			$("#menu").removeClass("inverse");
+			if($("#menu h1 img").attr('src').match(/inverse\.svg$/)){ // change only if needed
+				$("#menu h1 img").attr('src',"/squelettes/img/logoproportio.svg");
+			}
+		}
 	}
 };
 
@@ -144,7 +175,7 @@ var content = {
 			// dirty, please recode this
 			var ch = $('.container').height();
 			$('.slide.article .inner').each(function(){
-				console.log(this,$(this).height(),ch);
+//				console.log(this,$(this).height(),ch);
 				if($(this).height() > (ch - 100)){
 					$(this).css({
 						height: (ch - 40),
@@ -215,6 +246,7 @@ var background = {
 			url: url,
 			data: data,
 			success: function(d){
+				if(d.file != null)
 				background.set(slide,d.file);
 			},
 			error: function(d,e){

@@ -66,6 +66,14 @@
 
 								[<div class="chapo">(#CHAPO)</div>]
 								[<div class="texte">(#TEXTE|image_reduire{700})</div>]
+								<B_tags>
+								<div class="tags">
+								<BOUCLE_tags(MOTS){id_article}{!id_groupe IN (1,2)}>
+									<a href="#URL_MOT"
+										class="label [groupe(#ID_GROUPE|=={6}) label-inverse]">#TITRE</a>
+								</BOUCLE_tags>
+								</B_tags>
+								</div>
 								[<p>&raquo; (#MODELE{comments-nb})</p>]
 							</article>
 						</div><!--/.inner-->

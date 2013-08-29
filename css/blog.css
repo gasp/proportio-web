@@ -68,9 +68,14 @@ body.blog h4 {
 }
 body.blog .titraille {
   position: relative;
+  padding: 1em 0;
 }
-body.blog .author {
-  margin: .5em;
+body.blog .titraille h2 {
+  line-height: 1em;
+  margin: 0;
+}
+body.blog .titraille .author {
+  margin: 0;
 }
 body.blog .white.paginated .readme {
   display: none;
@@ -146,4 +151,18 @@ body.blog .formulaire_forum p.boutons {
 }
 body.blog .previsu .comment-meta img {
   display: none;
+}
+body.blog.auteur dt {
+  margin-top: 1em;
+}
+body.blog.auteur dt.active a {
+  color: #000;
+}
+body.blog .label,
+body.blog .badge {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  text-shadow: none;
+  font-weight: normal;
 }

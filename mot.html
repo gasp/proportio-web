@@ -21,7 +21,7 @@
 	</style>
 	</BOUCLE_fond>
 </head>
-<body class="page blog [ p(#ENV{debut_articles}|sinon{home})]">
+<body class="page blog mot">
 	
 	<div class="container">
 		<div class="row">
@@ -37,21 +37,6 @@
 		</div>
 		<div class="row">
 			<div class="span6 offset4 white[ p(#ENV{debut_articles}) paginated]">
-[
-				<section class="readme">
-					<article>
-						<div class="inner">
-							<p class="date">Readme</p>
-							<header>
-								<h2>About this blog</h2>
-							</header>
-							<div>
-								(#TEXTE)
-							</div>
-						</div><!--/.inner-->
-					</article>
-				</section>
-]
 				<section>
 					<B_articles>
 					#ANCRE_PAGINATION

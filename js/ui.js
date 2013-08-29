@@ -200,7 +200,7 @@ var content = {
 			$('.page').css({top: height-50}).addClass('down');
 			content.isdown = true;
 
-			$('.content').css({paddingTop: '30px'}).show();
+			$('.content').css({paddingTop: '60px'}).show();
 			$('.container').css({overflowY: 'auto'});
 
 			$('#updown').show();

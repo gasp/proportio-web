@@ -92,6 +92,14 @@
 	z-index:3;
 }
 
+.slider .slide .page.down{
+	overflow:none;
+	height:50px;
+}
+.slider .slide .page.down .inner{
+	display:none;
+}
+
 .slider .slide .page .content{
 	bottom:0px;
 	max-width:450px;
@@ -257,4 +265,27 @@
 
 #menu.inverse #bullet{
 	color:#000;
+}
+
+#updown{
+	position:fixed;
+	bottom:0;
+	cursor: pointer;
+	right:10px;
+	width:20px;
+	height:20px;
+	z-index:1001;
+}
+
+#updown .up, #updown .down{
+	background-repeat:no-repeat;
+	width:20px;
+	height:20px;
+}
+#updown .up{
+	background-image:url(../img/fleche-up.svg);
+}
+#updown .down{
+	background-image:url(../img/fleche-down.svg);
+	display:none;
 }

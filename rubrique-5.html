@@ -24,7 +24,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="span2 brand">
-				<a href="#URL_RUBRIQUE{2}"><span>proportio</span><img alt="proportio"[ src="(#CHEMIN{img/logoproportio.svg})"]></a>
+				<a href="#URL_RUBRIQUE{2}"><span>proportio</span><img alt="proportio"[ src="(#CHEMIN{img/logoproportio-inverse.svg})"]></a>
 			</div>
 			<div class="span6 offset2 header">
 				<h1>#DESCRIPTIF</h1>
@@ -50,7 +50,7 @@
 				<section>
 					<B_articles>
 					#ANCRE_PAGINATION
-					<BOUCLE_articles(ARTICLES){!par date}{0,5}{id_rubrique}{pagination 5}>
+					<BOUCLE_articles(ARTICLES){!par date}{id_rubrique}{pagination 5}>
 						<div class="inner">
 							<article>
 								[<figure class="icono">
@@ -66,19 +66,20 @@
 
 								[<div class="chapo">(#CHAPO)</div>]
 								[<div class="texte">(#TEXTE|image_reduire{700})</div>]
+								[<div class="notes">(#NOTES)</div>]
 								<B_tags>
 								<div class="tags">
 								<BOUCLE_tags(MOTS){id_article}{!id_groupe IN (1,2)}>
 									<a href="#URL_MOT"
 										class="label [groupe(#ID_GROUPE|=={6}) label-inverse]">#TITRE</a>
 								</BOUCLE_tags>
-								</B_tags>
 								</div>
+								</B_tags>
 								[<p>&raquo; (#MODELE{comments-nb})</p>]
 							</article>
 						</div><!--/.inner-->
 					</BOUCLE_articles>
-						<div class="inner">#PAGINATION</div>
+						<div class="inner pagination">#PAGINATION</div>
 					</B_articles>
 				</section>
 

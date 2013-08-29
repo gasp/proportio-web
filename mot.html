@@ -15,7 +15,7 @@
 	<!--[if IE]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<BOUCLE_fond(RUBRIQUES){id_secteur}{racine}>
+	<BOUCLE_fond(RUBRIQUES){id_rubrique=5}>
 	<style>
 	body.blog{	[	background-image: url('(#LOGO_RUBRIQUE|extraire_attribut{src})');]	}
 	</style>
@@ -26,7 +26,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="span2 brand">
-				<a href="#URL_RUBRIQUE{2}"><span>proportio</span><img alt="proportio"[ src="(#CHEMIN{img/proportio.png})"]></a>
+				<a href="#URL_RUBRIQUE{2}"><span>proportio</span><img alt="proportio"[ src="(#CHEMIN{img/logoproportio-inverse.svg})"]></a>
 			</div>
 			<div class="span6 offset2 header">
 				<BOUCLE_blog(RUBRIQUES){id_rubrique=5}{0,1}>
@@ -55,7 +55,7 @@
 				<section>
 					<B_articles>
 					#ANCRE_PAGINATION
-					<BOUCLE_articles(ARTICLES){id_mot}{!par date}{0,5}{pagination 5}>
+					<BOUCLE_articles(ARTICLES){id_mot}{!par date}{pagination 5}>
 						<div class="inner">
 							<article>
 								[<figure class="icono">

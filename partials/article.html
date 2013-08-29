@@ -7,10 +7,20 @@
 		[<p class="date">(#DATE|affdate_simple)</p>]
 		<header class="titraille">
 			<h2><a href="#URL_ARTICLE">#TITRE</a></h2>
+			<div class="author">#LESAUTEURS</div>
 		</header>
 
 		[<div class="chapo">(#CHAPO)</div>]
 		[<div class="texte">(#TEXTE|image_reduire{700})</div>]
+		[<div class="notes">(#NOTES)</div>]
+		<B_tags>
+		<div class="tags">
+		<BOUCLE_tags(MOTS){id_article}{!id_groupe IN (1,2)}>
+			<a href="#URL_MOT"
+				class="label [groupe(#ID_GROUPE|=={6}) label-inverse]">#TITRE</a>
+		</BOUCLE_tags>
+		</B_tags>
+
 	</article>
 </div><!--/.inner-->
 </BOUCLE_article>

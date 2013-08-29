@@ -52,7 +52,13 @@ body.blog{
 	.brand a span{
 		display:none;
 	}
-	
+	.label, .badge{
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+		text-shadow: none;
+		font-weight:normal;
+	}
 	h1{
 		padding-top:30px;
 		font-weight:bolder;
@@ -79,9 +85,14 @@ body.blog{
 	}
 	.titraille{
 		position:relative;
-	}
-	.author{
-		margin:.5em;
+		padding:1em 0;
+		h2{
+			line-height:1em;
+			margin:0;
+		}
+		.author{
+			margin:0;
+		}
 	}
 	.white.paginated .readme{
 		display:none;
@@ -173,5 +184,14 @@ body.blog{
 			}
 		}
 	}
+	&.auteur{
+		dt{
+			margin-top:1em;
+			&.active a{
+				color:#000;
+			}
+		}
+	}
+
 }
 @import url("lightbox.css");

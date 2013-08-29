@@ -85,9 +85,14 @@ body.blog{
 	}
 	.titraille{
 		position:relative;
-	}
-	.author{
-		margin:.5em;
+		padding:1em 0;
+		h2{
+			line-height:1em;
+			margin:0;
+		}
+		.author{
+			margin:0;
+		}
 	}
 	.white.paginated .readme{
 		display:none;
@@ -179,5 +184,14 @@ body.blog{
 			}
 		}
 	}
+	&.auteur{
+		dt{
+			margin-top:1em;
+			&.active a{
+				color:#000;
+			}
+		}
+	}
+
 }
 @import url("lightbox.css");

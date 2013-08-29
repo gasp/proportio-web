@@ -12,31 +12,57 @@
 	<link rel="stylesheet" href="#CHEMIN{css/bootstrap-responsive.css}">
 	<link rel="stylesheet" href="#CHEMIN{css/blog.css}">
 	<link rel="alternate" type="application/rss+xml" title="RSS" href="/spip.php?page=backend&id_rubrique=5">
+	<!--[if IE]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<BOUCLE_fond(RUBRIQUES){id_rubrique=5}>
+	<style>
+	body.blog{	[	background-image: url('(#LOGO_RUBRIQUE|extraire_attribut{src})');]	}
+	</style>
+	</BOUCLE_fond>
 </head>
-<body class="page auteur">
+<body class="page blog auteur">
 <div class="container">
 	<div class="row">
-		<div class="span6 offset4 white">
-			<h1>#NOM_SITE_SPIP</h1>
-			<h2>contributors:</h2>
-			<dl>
-			<BOUCLE_contributors(AUTEURS)>
-				<dt[ (#EXPOSE{class="active"})]><a href="#URL_AUTEUR">#NOM</a></dt>
-				<dd>
-					[<div class="bio">(#BIO)</div>]
-					<BOUCLE_articles(ARTICLES){id_auteur}> </BOUCLE_articles>#TOTAL_BOUCLE articles</B_articles>
-					<BOUCLE_forums(FORUMS){id_auteur}> </BOUCLE_forums>#TOTAL_BOUCLE comments</B_forums>
-				</dd>
-			</BOUCLE_contributors>
-			</dl>
-			<h2>#NOM's blog posts</h2>
-			<ul>
-			<BOUCLE_blog(ARTICLES){id_auteur}{id_rubrique=5}>
-				<li><a href="#URL_ARTICLE"[ title="(#TEXTE|couper|attribut_html)"]>#TITRE</a></li>
+		<div class="span2 brand">
+			<a href="#URL_RUBRIQUE{2}"><span>proportio</span><img alt="proportio"[ src="(#CHEMIN{img/logoproportio-inverse.svg})"]></a>
+		</div>
+		<div class="span6 offset2 header">
+			<BOUCLE_blog(RUBRIQUES){id_rubrique=5}{0,1}>
+				<h1><a href="#URL_RUBRIQUE">[(#DESCRIPTIF|textebrut)]<span>// contributors</span></a></h1>
 			</BOUCLE_blog>
-			</ul>
-			</BOUCLE_principale>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6 offset4 white">
+			<section>
+				<div class="inner">
+					<dl>
+						<BOUCLE_contributors(AUTEURS)>
+							<BOUCLE_articles(ARTICLES){id_auteur}{id_secteur=5}> </BOUCLE_articles>
+								<dt[ (#EXPOSE{class="active"})]><a href="#URL_AUTEUR">#NOM</a></dt>
+								<dd>
+									[<div class="bio">(#BIO)</div>]
+					
+									<div>#TOTAL_BOUCLE articles</div>
+								</dd>
+							</B_articles>
+						</BOUCLE_contributors>
+					</dl>
+				</div>
+			</section>
+			<section>
+				<div class="inner">
+					<h2>#NOM's blog posts</h2>
+					<ul>
+					<BOUCLE_articles_blog(ARTICLES){id_auteur}{id_rubrique=5}>
+						<li><a href="#URL_ARTICLE"[ title="(#TEXTE|couper|attribut_html)"]>#TITRE</a></li>
+					</BOUCLE_articles_blog>
+					</ul>
+				</div>
+			</section>
 		</div>
 	</div><!--/.row-->
 </div><!--/.container-->
 		
+</BOUCLE_principale>

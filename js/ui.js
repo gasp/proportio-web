@@ -137,6 +137,7 @@ var content = {
 	init: function () {
 		content.place(true);
 	},
+	isdown: true,
 	place: function(animate){
 		//place bottom text
 		var height = $(document).height(),
@@ -154,6 +155,19 @@ var content = {
 			}
 		});
 
+		$('#updown div').off('click').on('click',function(){
+			if(content.isdown == true){
+				$('.page').css({top:0}).removeClass('down');
+				content.isdown = false;
+			}
+			else{
+				$('.page').css({top: height-50}).addClass('down');
+				content.isdown = true;
+			}
+			console.log("updown")
+			$('#updown .up, #updown .down').toggle();
+		});
+
 			/*
 				TODO move this to media queries
 			*/
@@ -163,13 +177,19 @@ var content = {
 			// reset css if has been modified by <640 version
 			$('.section.blog .article').show()
 			$('.page').css({width: '34%',marginLeft: '66.1%'}).show();
+			$('.page').removeClass('down');
 			$('.container').css({overflowY: 'hidden'});
 			$('#menu').removeClass('mini');
 			$('#menu ul, #menu .lang').show();
+
+			$('#updown').hide();
+			content.isdown = false;
+			$('.page').css({top:0}).removeClass('down');
 		}
 		else{
+			menu.inverse(false);
 			// hide menu > find some way to display it
-			$('#menu').addClass('mini')
+			$('#menu').addClass('mini');
 			$('#bullet').hide();
 
 			// show only the first blog post on home page
@@ -177,8 +197,13 @@ var content = {
 			$($('.section.blog .article').get(0)).show()
 
 			$('.page').css({width: '100%',marginLeft: 0});
-			$('.content').css({paddingTop: '30px'}).show();
+			$('.page').css({top: height-50}).addClass('down');
+			content.isdown = true;
+
+			$('.content').css({paddingTop: '60px'}).show();
 			$('.container').css({overflowY: 'auto'});
+
+			$('#updown').show();
 
 			// fix height with scroll
 			// dirty, please recode this

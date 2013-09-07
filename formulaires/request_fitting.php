@@ -1,16 +1,5 @@
 <?php
 
-/***************************************************************************\
- *  SPIP, Systeme de publication pour l'internet                           *
- *                                                                         *
- *  Copyright (c) 2001-2012                                                *
- *  Arnaud Martin, Antoine Pitrou, Philippe Riviere, Emmanuel Saint-James  *
- *                                                                         *
- *  Ce programme est un logiciel libre distribue sous licence GNU/GPL.     *
- *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
-\***************************************************************************/
-
-
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
 function formulaires_request_fitting_charger_dist(){
@@ -25,9 +14,7 @@ function formulaires_request_fitting_charger_dist(){
 		'email_message_auteur'=>$GLOBALS['visiteur_session']['email']
 	);
 	
-	// id du formulaire (pour en avoir plusieurs sur une meme page)
-	$valeurs['id'] = "rfitting";
-	
+	$valeurs['rien'] = '';
 	return $valeurs;
 }
 
@@ -96,8 +83,12 @@ function formulaires_request_fitting_traiter_dist(){
 
 	$envoyer_mail = charger_fonction('envoyer_mail','inc');
 
-	if ($envoyer_mail($mailto, $sujet, $texte, $adres,
-	"X-Originating-IP: ".$GLOBALS['ip'])){
+	if ($envoyer_mail($mailto, $sujet, array(
+		'texte' => $texte,
+		'nom_envoyeur' => 'webmaster Try',
+		'from' => 'webmaster@try-studio.com',
+		'headers' => "X-Originating-IP: ".$GLOBALS['ip']
+	)){
 		return array('message_ok',_T('form_prop_message_envoye'));
 	}
 	else{

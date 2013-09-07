@@ -12,6 +12,5 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'form_message' => 'Message',
 	'form_message_help' => 'Si vous avez quelque chose à rajouter.',
 	'form_too_short' => 'Ceci est trop court pour être vrai'
-
 );
 ?>

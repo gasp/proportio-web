@@ -161,3 +161,6 @@ body.blog.auteur dt {
 body.blog.auteur dt.active a {
   color: #000;
 }
+body.blog .explication.saisie_texte_info {
+  display: none;
+}

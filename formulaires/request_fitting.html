@@ -1,0 +1,71 @@
+<div class="formulaire_spip formulaire_request_fitting ajax" id="formulaire_request_fitting#ENV{id}">
+<br class='bugajaxie' />
+[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+[(#ENV{editable})
+
+<form class="custom_form" method='post' action='#ENV{action}#formulaire_request_fitting#ENV{id}' enctype='multipart/form-data'>
+	[(#REM) declarer les hidden qui declencheront le service du formulaire parametre : url d'action ]
+	#ACTION_FORMULAIRE{#ENV{action}}
+	[(#REM) Previsualisation... ]
+	[(#ENV*{erreurs}|table_valeur{previsu}|oui)
+	<fieldset class="previsu">
+		<legend><:previsualisation:></legend>
+		<ul>
+			<li><strong>#ENV{sujet_message_auteur}</strong> - <em>#ENV{email_message_auteur}</em></li>
+			<li>[(#ENV{texte_message_auteur}|nl2br)]</li>
+		</ul>
+		<p class="boutons"><input type="submit" class="submit" name="confirmer" value="<:form_prop_confirmer_envoi:>" /></p>
+	</fieldset>
+	]
+	[(#REM) Sinon, formulaire normal ]
+	<fieldset>
+		<legend><:form_request_fitting:></legend>
+		<ul>
+			<li class='control-group editer saisie_fname_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{fname_message_auteur}|oui)erreur]'>
+				<label for="fname_message_auteur#ENV{id}"><:form_fname:> <:info_obligatoire_02:></label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{fname_message_auteur})</span>]
+				<input type="text" class="input-xlarge text" name="fname_message_auteur" id="fname_message_auteur#ENV{id}" value="#ENV{fname_message_auteur}" size="30"[(#HTML5) required="required"] />
+				<span class="help-block">Example block-level help text here.</span>
+			</li>
+
+			<li class='control-group editer saisie_lname_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{lname_message_auteur}|oui)erreur]'>
+				<label for="lname_message_auteur#ENV{id}"><:form_lname:> <:info_obligatoire_02:></label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{lname_message_auteur})</span>]
+				<input type="text" class="text input-xlarge" name="lname_message_auteur" id="lname_message_auteur#ENV{id}" value="#ENV{lname_message_auteur}" size="30"[(#HTML5) required="required"] />
+			</li>
+
+			<li class='control-group editer saisie_email_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{email_message_auteur}|oui)erreur]'>
+				<label for="email_message_auteur#ENV{id}"><:entree_adresse_email:> <:info_obligatoire_02:></label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{email_message_auteur})</span>]
+				<input[ (#HTML5|?{required="required" type="email" class="text email input-xlarge",type="text" class="text input-xlarge"})] name="email_message_auteur" id="email_message_auteur#ENV{id}" value="#ENV{email_message_auteur}" size="30" />
+			</li>
+
+			<li class='control-group editer saisie_phone_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{phone_message_auteur}|oui)erreur]'>
+				<label for="phone_message_auteur#ENV{id}"><:form_phone:> <:info_obligatoire_02:></label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{phone_message_auteur})</span>]
+				<input[ (#HTML5|?{required="required" type="tel" class="text tel input-xlarge",type="text" class="text input-xlarge"})] name="phone_message_auteur" id="phone_message_auteur#ENV{id}" value="#ENV{phone_message_auteur}" size="30" />
+			</li>
+			
+			<li class='control-group editer saisie_place_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{place_message_auteur}|oui)erreur]'>
+				<label for="place_message_auteur#ENV{id}"><:form_place:> <:info_obligatoire_02:></label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{place_message_auteur})</span>]
+				<input type="text" class="text input-xlarge" name="place_message_auteur" id="place_message_auteur#ENV{id}" value="#ENV{place_message_auteur}" size="30"[(#HTML5) required="required"] />
+			</li>
+
+			<li class='control-group editer saisie_texte_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{texte_message_auteur}|oui)erreur]'>
+				<label for="texte_message_auteur#ENV{id}"><:info_texte_message:> <:info_obligatoire_02:></label>
+				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{texte_message_auteur})</span>]
+				<textarea name="texte_message_auteur" id="texte_message_auteur#ENV{id}" rows="10" cols="60"[(#HTML5) required="required"]>#ENV{texte_message_auteur}</textarea>
+			</li>
+		</ul>
+	</fieldset>
+	[(#REM) Piege a robots spammeurs ]
+	<p style="display: none;">
+		<label for="nobot"><:antispam_champ_vide:></label>
+		<input type="text" class="text" name="nobot" id="nobot" value="#ENV{nobot}" size="10" />
+	</p>
+	<p class="boutons"><input type="submit" class="submit" name="valide" value="<:form_prop_envoyer:>" /></p>
+</form>
+]
+</div>

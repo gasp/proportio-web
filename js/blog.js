@@ -15,6 +15,7 @@ $(document).ready(function() {
 	$(".erreur_message").addClass('alert alert-error');
 	$(".reponse_formulaire_ok").addClass('alert alert-success');
 	$(".previsu .comment").addClass('alert alert-info');
+	$(".control-group.erreur").addClass('error');
 	
 	
 });

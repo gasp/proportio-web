@@ -72,10 +72,10 @@ function formulaires_request_fitting_verifier_dist(){
 function formulaires_request_fitting_traiter_dist(){
 	
 	$mailto = 'gaspard@gmail.com';
-	$adres = _request('email_message_auteur');
 	$fname = _request('fname_message_auteur');
 	$lname = _request('lname_message_auteur');
 	$place = _request('place_message_auteur');
+	$adres = _request('email_message_auteur');
 	$phone = _request('phone_message_auteur');
 	$line = "------------------------------------\n";
 
@@ -85,7 +85,7 @@ function formulaires_request_fitting_traiter_dist(){
 		"Good morning,\n$fname $lname has just requested a fitting in $place!\n"
 		." Please contact $fname for fixing details\n"
 		." email : $adres\n"
-		." phone : $adres\n"
+		." phone : $phone\n"
 		.$line
 		. _request('texte_message_auteur')
 		."\n"

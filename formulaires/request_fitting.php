@@ -83,8 +83,12 @@ function formulaires_request_fitting_traiter_dist(){
 
 	$envoyer_mail = charger_fonction('envoyer_mail','inc');
 
-	if ($envoyer_mail($mailto, $sujet, $texte, $adres,
-	"X-Originating-IP: ".$GLOBALS['ip'])){
+	if ($envoyer_mail($mailto, $sujet, array(
+		'texte' => $texte,
+		'nom_envoyeur' => 'webmaster Try',
+		'from' => 'webmaster@try-studio.com',
+		'headers' => "X-Originating-IP: ".$GLOBALS['ip']
+	)){
 		return array('message_ok',_T('form_prop_message_envoye'));
 	}
 	else{

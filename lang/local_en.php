@@ -8,6 +8,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'form_lname' => 'Last Name',
 	'form_place' => 'City, Country',
 	'form_phone' => 'Phone number',
-	'form_too_short' => 'This is too short to be true'
+	'form_too_short' => 'This is too short to be true', // error message
 );
 ?>

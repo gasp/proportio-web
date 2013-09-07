@@ -80,17 +80,20 @@ function formulaires_request_fitting_traiter_dist(){
 	$line = "------------------------------------\n";
 
 	$sujet = "[".supprimer_tags(extraire_multi($GLOBALS['meta']['nom_site']))."] "
-		. _T('info_message_2')." "
-	  . "Fitting request";
-	$texte=
-		"Good morning,\n $fname $lname has just requested a fitting in $place!\n"
+		. "Fitting request";
+	$texte =
+		"Good morning,\n$fname $lname has just requested a fitting in $place!\n"
 		." Please contact $fname for fixing details\n"
 		." email : $adres\n"
 		." phone : $adres\n"
 		.$line
-		. _request('texte_message_auteur');
-	
-	$texte .= $line."\n\n-- "._T('envoi_via_le_site')." ".supprimer_tags(extraire_multi($GLOBALS['meta']['nom_site']))." (".$GLOBALS['meta']['adresse_site']."/) --\n";
+		. _request('texte_message_auteur')
+		."\n"
+		.$line
+		._T('envoi_via_le_site')
+		." ".supprimer_tags(extraire_multi($GLOBALS['meta']['nom_site']))
+		." (".$GLOBALS['meta']['adresse_site']."/)";
+
 	$envoyer_mail = charger_fonction('envoyer_mail','inc');
 
 	if ($envoyer_mail($mailto, $sujet, $texte, $adres,

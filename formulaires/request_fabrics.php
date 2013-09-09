@@ -89,7 +89,7 @@ function formulaires_request_fabrics_traiter_dist(){
 		." email : $email\n"
 		." phone : $phone\n"
 		." address : $address\n"
-		."           ($zip) $city - $country"
+		."           ($zip) $city - $country\n"
 		.$line
 		. _request('texte_message_auteur')
 		."\n"

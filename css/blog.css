@@ -20,6 +20,9 @@ body.blog figure {
   margin: 0;
   padding: 0;
 }
+body.blog figure.icono .spip_logos {
+  width: 100%;
+}
 body.blog .header {
   height: 15%;
 }
@@ -139,17 +142,21 @@ body.blog .comments .comment-meta .avatar {
 body.blog .comments .comment-meta .item {
   display: none;
 }
-body.blog .formulaire_forum ul {
+body.blog .formulaire_forum ul,
+body.blog .custom_form ul {
   margin: 0;
   padding: 0;
 }
-body.blog .formulaire_forum ul li {
+body.blog .formulaire_forum ul li,
+body.blog .custom_form ul li {
   list-style-type: none;
 }
-body.blog .formulaire_forum textarea {
+body.blog .formulaire_forum textarea,
+body.blog .custom_form textarea {
   width: 95%;
 }
-body.blog .formulaire_forum p.boutons {
+body.blog .formulaire_forum p.boutons,
+body.blog .custom_form p.boutons {
   text-align: right;
 }
 body.blog .previsu .comment-meta img {
@@ -161,6 +168,7 @@ body.blog.auteur dt {
 body.blog.auteur dt.active a {
   color: #000;
 }
-body.blog .explication.saisie_texte_info {
+body.blog .explication.saisie_texte_info,
+body.blog .explication.gravatar_info_forum {
   display: none;
 }

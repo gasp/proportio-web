@@ -15,10 +15,11 @@
 	<!--[if IE]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-
+	<BOUCLE_fond(RUBRIQUES){id_secteur}{racine}>
 	<style>
-	body.blog{	[	background-image: url('(#LOGO_ARTICLE|extraire_attribut{src})');]	}
+	body.blog{	[	background-image: url('(#LOGO_RUBRIQUE|extraire_attribut{src})');]	}
 	</style>
+	</BOUCLE_fond>
 </head>
 <body class="page blog">
 	
@@ -36,17 +37,17 @@
 		<div class="row">
 			<div class="span6 offset4 white">
 				<section>
+				<INCLURE{fond=partials/article}{id_article}>
+				</section>
+				<section>
 					<div class="inner">
-						<article>
-							<header class="titraille">
-								<h2><a href="#URL_ARTICLE">#TITRE</a></h2>
-							</header>
-
-							[<div class="chapo">(#CHAPO)</div>]
-							[<div class="texte">(#TEXTE|image_reduire{700})</div>]
-							[<div class="notes">(#NOTES)</div>]
-						</article>
-					</div><!--/.inner-->
+					 <INCLURE{fond=inclure/forum}{id_article}>
+					</div>
+[
+					<div class="inner">
+						(#FORMULAIRE_FORUM)
+					</div>
+]
 				</section>
 			</div><!--/.white-->
 		</div><!--/.row-->

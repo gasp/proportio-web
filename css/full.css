@@ -239,6 +239,9 @@
 #menu.mini a{
 	text-decoration:none;
 }
+menu.mini.inverse a{
+	color:#fff;
+}
 #menu.mini .lang {
 	top:0;
 	font-size:14pt;

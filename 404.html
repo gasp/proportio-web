@@ -18,8 +18,7 @@
 			<h2>Site structure</h2>
 			<BOUCLE_racine(RUBRIQUES){racine}{!id_rubrique = 5}>
 				[<p>(#TITRE|traduire_nom_langue):]
-				<BOUCLE_content(RUBRIQUES){id_parent}{", "}><a href="#URL_RUBRIQUE">#TITRE</a></BOUCLE_content>
-				</ul>
+				<BOUCLE_content(RUBRIQUES){id_parent}{par num titre}{", "}><a href="#URL_RUBRIQUE">#TITRE</a></BOUCLE_content>
 			</p>
 			</BOUCLE_racine>
 			<script>

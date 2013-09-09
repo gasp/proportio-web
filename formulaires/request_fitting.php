@@ -26,13 +26,13 @@ function formulaires_request_fitting_verifier_dist(){
 
 
 	//email
-	if (!$adres = _request('email_message_auteur'))
+	if (!$email = _request('email_message_auteur'))
 		$erreurs['email_message_auteur'] = _T("info_obligatoire");
-	elseif(!email_valide($adres))
+	elseif(!email_valide($email))
 		$erreurs['email_message_auteur'] = _T('form_prop_indiquer_email');
 	else {
 		include_spip('inc/session');
-		session_set('email', $adres);
+		session_set('email', $email);
 	}
 
 	// civility
@@ -70,7 +70,7 @@ function formulaires_request_fitting_traiter_dist(){
 	$lname = _request('lname_message_auteur');
 	$place = _request('place_message_auteur');
 	$date  = _request('date_message_auteur');
-	$adres = _request('email_message_auteur');
+	$email = _request('email_message_auteur');
 	$phone = _request('phone_message_auteur');
 	$line  = "------------------------------------\n";
 
@@ -84,7 +84,7 @@ function formulaires_request_fitting_traiter_dist(){
 		$texte .=  "It could take place on $date\n";
 
 	$texte .= " Please contact $fname for fixing details\n"
-		." email : $adres\n"
+		." email : $email\n"
 		." phone : $phone\n"
 		.$line
 		. _request('texte_message_auteur')

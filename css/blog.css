@@ -20,6 +20,9 @@ body.blog figure {
   margin: 0;
   padding: 0;
 }
+body.blog figure.icono .spip_logos {
+  width: 100%;
+}
 body.blog .header {
   height: 15%;
 }

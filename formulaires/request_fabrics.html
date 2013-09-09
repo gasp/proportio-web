@@ -1,0 +1,108 @@
+<div class="formulaire_spip formulaire_request_fabrics ajax" id="formulaire_request_fabrics">
+<br class='bugajaxie' />
+[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})<br><strong>thanks for your information</strong></p>]
+[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+[(#ENV{editable})
+
+<form class="custom_form" method='post' action='#ENV{action}#formulaire_request_fabrics' enctype='multipart/form-data'>
+	[(#REM) declarer les hidden qui declencheront le service du formulaire parametre : url d'action ]
+	#ACTION_FORMULAIRE{#ENV{action}}
+	[(#REM) Previsualisation... ]
+	[(#ENV*{erreurs}|table_valeur{previsu}|oui)
+	<fieldset class="previsu">
+		<legend><:previsualisation:></legend>
+		<ul>
+			<li>Fabric request </li>
+			<li><strong>Personal details:</strong><br> 
+				[(#ENV{civility_message_auteur}) ][(#ENV{fname_message_auteur}) ]
+					[<strong>(#ENV{lname_message_auteur})</strong>]<br>
+				[email: (#ENV{email_message_auteur})<br>]
+				[phone: (#ENV{phone_message_auteur})<br>]
+				address: [(#ENV{address_message_auteur}) ][((#ENV{zip_message_auteur}))] [(#ENV{city_message_auteur})][- (#ENV{country_message_auteur})]<br>
+			</li>
+			<li>[<strong>Message:</strong><br>
+				(#ENV{texte_message_auteur}|nl2br)]</li>
+		</ul>
+		<p class="boutons"><input type="submit" class="submit" name="confirmer" value="<:form_prop_confirmer_envoi:>" /></p>
+	</fieldset>
+	]
+	[(#REM) Sinon, formulaire normal ]
+	<fieldset>
+		<legend><:form_request_fabrics:></legend>
+		<ul>
+			<li class='control-group editer saisie_civility_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{civility_message_auteur}|oui)erreur]'>
+				<label for="fname_message_auteur"><:form_civility:> <:info_obligatoire_02:></label>
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{civility_message_auteur})</div>]
+				<label class="radio inline">
+					<input type="radio" name="civility_message_auteur" value="Mr."
+					[ (#ENV{civility_message_auteur}|=={Mr.}|oui)checked="checked"]> Mr.
+				</label>
+				<label class="radio inline">
+					<input type="radio" name="civility_message_auteur" value="Ms."
+					[ (#ENV{civility_message_auteur}|=={Ms.}|oui)checked="checked"]> Ms.
+				</label>
+			</li>
+
+
+			<li class='control-group editer saisie_fname_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{fname_message_auteur}|oui)erreur]'>
+				<label for="fname_message_auteur"><:form_fname:> <:info_obligatoire_02:></label>
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{fname_message_auteur})</span>]
+				<input type="text" class="input-xlarge text" name="fname_message_auteur" id="fname_message_auteur" value="#ENV{fname_message_auteur}" size="30"[(#HTML5) required="required"] />
+			</li>
+
+			<li class='control-group editer saisie_lname_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{lname_message_auteur}|oui)erreur]'>
+				<label for="lname_message_auteur"><:form_lname:> <:info_obligatoire_02:></label>
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{lname_message_auteur})</span>]
+				<input type="text" class="text input-xlarge" name="lname_message_auteur" id="lname_message_auteur" value="#ENV{lname_message_auteur}" size="30"[(#HTML5) required="required"] />
+			</li>
+
+			<li class='control-group editer saisie_email_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{email_message_auteur}|oui)erreur]'>
+				<label for="email_message_auteur"><:entree_adresse_email:> <:info_obligatoire_02:></label>
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{email_message_auteur})</span>]
+				<input[ (#HTML5|?{required="required" type="email" class="text email input-xlarge",type="text" class="text input-xlarge"})] name="email_message_auteur" id="email_message_auteur" value="#ENV{email_message_auteur}" size="30" />
+			</li>
+
+			<li class='control-group editer saisie_phone_message_auteur [ (#ENV*{erreurs}|table_valeur{phone_message_auteur}|oui)erreur]'>
+				<label for="phone_message_auteur"><:form_phone:></label>
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{phone_message_auteur})</span>]
+				<input[ (#HTML5|?{type="tel" class="text tel input-xlarge",type="text" class="text input-xlarge"})] name="phone_message_auteur" id="phone_message_auteur" value="#ENV{phone_message_auteur}" size="30" />
+			</li>
+			
+			<li class='control-group editer saisie_address_message_auteur [ (#ENV*{erreurs}|table_valeur{address_message_auteur}|oui)erreur]'>
+				<label for="address_message_auteur"><:form_address:> <:info_obligatoire_02:></label>
+				
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{address_message_auteur})</span>]
+				<span class="help-block"><:form_address_help:></span>
+				<input type="text" class="text input-xlarge" name="address_message_auteur" id="address_message_auteur" value="#ENV{address_message_auteur}" size="30"[(#HTML5) required="required"] />
+
+				<div class="input-prepend">
+					<span class="add-on"><:form_zip:></span>
+					<input name="zip_message_auteur" class="span2" id="zip" type="text" value="#ENV{zip_message_auteur}"[(#HTML5) required="required"]>
+				</div>
+
+				<span class="help-block"><:form_city:></span>
+				<input type="text" class="text input-xlarge" name="city_message_auteur" id="city_message_auteur" value="#ENV{city_message_auteur}" size="30"[(#HTML5) required="required"] />
+
+				<span class="help-block"><:form_country:></span>
+				<input type="text" class="text input-xlarge" name="country_message_auteur" id="country_message_auteur" value="#ENV{country_message_auteur}" size="30"[(#HTML5) required="required"] />
+				
+			</li>
+
+			<li class='control-group editer saisie_texte_message_auteur [ (#ENV*{erreurs}|table_valeur{texte_message_auteur}|oui)erreur]'>
+				<label for="texte_message_auteur"><:form_message:></label>
+				<span class="help-block"><:form_message_help:></span>
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{texte_message_auteur})</span>]
+				<textarea name="texte_message_auteur" id="texte_message_auteur" rows="3" cols="60">#ENV{texte_message_auteur}</textarea>
+			</li>
+		</ul>
+	</fieldset>
+	[(#REM) Piege a robots spammeurs ]
+	<p style="display: none;">
+		<label for="nobot"><:antispam_champ_vide:></label>
+		<input type="text" class="text" name="nobot" id="nobot" value="#ENV{nobot}" size="10" />
+	</p>
+	<p class="boutons"><input type="submit" class="submit" name="valide" value="<:form_request_fabrics:>" /></p>
+</form>
+]
+<p><small>all information provided is completely private and will only be used by try. sarl / proportio to communicate with you</small></p>
+</div>

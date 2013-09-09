@@ -1,6 +1,6 @@
 <div class="formulaire_spip formulaire_request_fitting ajax" id="formulaire_request_fitting">
 <br class='bugajaxie' />
-[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})<br><strong>thanks for your information</strong></p>]
 [<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 [(#ENV{editable})
 
@@ -12,9 +12,9 @@
 	<fieldset class="previsu">
 		<legend><:previsualisation:></legend>
 		<ul>
-			[<li>Fitting request in (#ENV{place_message_auteur})</li>]
+			[<li>Fitting request in (#ENV{place_message_auteur})[ for (#ENV{date_message_auteur})]</li>]
 			<li><strong>Personal details:</strong><br> 
-				[(#ENV{fname_message_auteur}) ]
+				[(#ENV{civility_message_auteur}) ][(#ENV{fname_message_auteur}) ]
 					[<strong>(#ENV{lname_message_auteur})</strong>]<br>
 				[email: (#ENV{email_message_auteur})<br>]
 				[phone: (#ENV{phone_message_auteur})<br>]
@@ -29,41 +29,63 @@
 	<fieldset>
 		<legend><:form_request_fitting:></legend>
 		<ul>
+			<li class='control-group editer saisie_civility_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{civility_message_auteur}|oui)erreur]'>
+				<label for="fname_message_auteur"><:form_civility:> <:info_obligatoire_02:></label>
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{civility_message_auteur})</div>]
+				<label class="radio inline">
+					<input type="radio" name="civility_message_auteur" value="Mr."
+					[ (#ENV{civility_message_auteur}|=={Mr.}|oui)checked="checked"]> Mr.
+				</label>
+				<label class="radio inline">
+					<input type="radio" name="civility_message_auteur" value="Ms."
+					[ (#ENV{civility_message_auteur}|=={Ms.}|oui)checked="checked"]> Ms.
+				</label>
+			</li>
+
+
 			<li class='control-group editer saisie_fname_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{fname_message_auteur}|oui)erreur]'>
 				<label for="fname_message_auteur"><:form_fname:> <:info_obligatoire_02:></label>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{fname_message_auteur})</span>]
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{fname_message_auteur})</span>]
 				<input type="text" class="input-xlarge text" name="fname_message_auteur" id="fname_message_auteur" value="#ENV{fname_message_auteur}" size="30"[(#HTML5) required="required"] />
 			</li>
 
 			<li class='control-group editer saisie_lname_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{lname_message_auteur}|oui)erreur]'>
 				<label for="lname_message_auteur"><:form_lname:> <:info_obligatoire_02:></label>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{lname_message_auteur})</span>]
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{lname_message_auteur})</span>]
 				<input type="text" class="text input-xlarge" name="lname_message_auteur" id="lname_message_auteur" value="#ENV{lname_message_auteur}" size="30"[(#HTML5) required="required"] />
 			</li>
 
 			<li class='control-group editer saisie_email_message_auteur obligatoire[ (#ENV*{erreurs}|table_valeur{email_message_auteur}|oui)erreur]'>
 				<label for="email_message_auteur"><:entree_adresse_email:> <:info_obligatoire_02:></label>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{email_message_auteur})</span>]
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{email_message_auteur})</span>]
 				<input[ (#HTML5|?{required="required" type="email" class="text email input-xlarge",type="text" class="text input-xlarge"})] name="email_message_auteur" id="email_message_auteur" value="#ENV{email_message_auteur}" size="30" />
 			</li>
 
 			<li class='control-group editer saisie_phone_message_auteur [ (#ENV*{erreurs}|table_valeur{phone_message_auteur}|oui)erreur]'>
 				<label for="phone_message_auteur"><:form_phone:></label>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{phone_message_auteur})</span>]
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{phone_message_auteur})</span>]
 				<input[ (#HTML5|?{type="tel" class="text tel input-xlarge",type="text" class="text input-xlarge"})] name="phone_message_auteur" id="phone_message_auteur" value="#ENV{phone_message_auteur}" size="30" />
 			</li>
 			
 			<li class='control-group editer saisie_place_message_auteur [ (#ENV*{erreurs}|table_valeur{place_message_auteur}|oui)erreur]'>
 				<label for="place_message_auteur"><:form_place:> <:info_obligatoire_02:></label>
 				<span class="help-block"><:form_place_help:></span>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{place_message_auteur})</span>]
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{place_message_auteur})</span>]
 				<input type="text" class="text input-xlarge" name="place_message_auteur" id="place_message_auteur" value="#ENV{place_message_auteur}" size="30"[(#HTML5) required="required"] />
 			</li>
+
+			<li class='control-group editer saisie_date_message_auteur [ (#ENV*{erreurs}|table_valeur{date_message_auteur}|oui)erreur]'>
+				<label for="date_message_auteur"><:form_date:></label>
+				<span class="help-block"><:form_date_help:></span>
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{date_message_auteur})</span>]
+				<input type="text" class="text input-xlarge" name="date_message_auteur" id="date_message_auteur" value="#ENV{date_message_auteur}" size="30"[(#HTML5) placeholder="<:form_date_placeholder:>"] />
+			</li>
+
 
 			<li class='control-group editer saisie_texte_message_auteur [ (#ENV*{erreurs}|table_valeur{texte_message_auteur}|oui)erreur]'>
 				<label for="texte_message_auteur"><:form_message:></label>
 				<span class="help-block"><:form_message_help:></span>
-				[<span class="erreur_message">(#ENV*{erreurs}|table_valeur{texte_message_auteur})</span>]
+				[<div class="erreur_message">(#ENV*{erreurs}|table_valeur{texte_message_auteur})</span>]
 				<textarea name="texte_message_auteur" id="texte_message_auteur" rows="3" cols="60">#ENV{texte_message_auteur}</textarea>
 			</li>
 		</ul>
@@ -76,4 +98,5 @@
 	<p class="boutons"><input type="submit" class="submit" name="valide" value="<:form_request_fitting:>" /></p>
 </form>
 ]
+<p><small>all information provided is completely private and will only be used by try. sarl / proportio to communicate with you</small></p>
 </div>

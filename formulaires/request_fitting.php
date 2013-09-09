@@ -6,10 +6,12 @@ function formulaires_request_fitting_charger_dist(){
 	include_spip('inc/texte');
 	$puce = definir_puce();
 	$valeurs = array(
+		'civility_message_auteur'=>'',
 		'fname_message_auteur'=>'',
 		'lname_message_auteur'=>'',
 		'phone_message_auteur'=>'',
 		'place_message_auteur'=>'',
+		'date_message_auteur' =>'',
 		'texte_message_auteur'=>'',
 		'email_message_auteur'=>$GLOBALS['visiteur_session']['email']
 	);
@@ -32,6 +34,10 @@ function formulaires_request_fitting_verifier_dist(){
 		include_spip('inc/session');
 		session_set('email', $adres);
 	}
+
+	// civility
+	if (!$fname=_request('civility_message_auteur'))
+		$erreurs['civility_message_auteur'] = _T("info_obligatoire");
 
 	// fname lname
 	if (!$fname=_request('fname_message_auteur'))
@@ -59,18 +65,25 @@ function formulaires_request_fitting_verifier_dist(){
 function formulaires_request_fitting_traiter_dist(){
 	
 	$mailto = 'gaspard@gmail.com';
+	$civil = _request('civility_message_auteur');
 	$fname = _request('fname_message_auteur');
 	$lname = _request('lname_message_auteur');
 	$place = _request('place_message_auteur');
+	$date  = _request('date_message_auteur');
 	$adres = _request('email_message_auteur');
 	$phone = _request('phone_message_auteur');
-	$line = "------------------------------------\n";
+	$line  = "------------------------------------\n";
 
 	$sujet = "[".supprimer_tags(extraire_multi($GLOBALS['meta']['nom_site']))."] "
 		. "Fitting request";
 	$texte =
-		"Good morning,\n$fname $lname has just requested a fitting in $place!\n"
-		." Please contact $fname for fixing details\n"
+		"Good morning,\n"
+		."$civil $fname $lname has just requested a fitting in $place!\n";
+
+	if($date)
+		$texte .=  "It could take place on $date\n";
+
+	$texte .= " Please contact $fname for fixing details\n"
 		." email : $adres\n"
 		." phone : $phone\n"
 		.$line

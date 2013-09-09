@@ -56,7 +56,7 @@
 								[<figure class="icono">
 									<a title="[(#TITRE|attribut_html)]"
 									[href="(#LOGO_ARTICLE|extraire_attribut{src})"]
-									rel="lightbox">(#LOGO_ARTICLE|image_passe_partout{700,110}|image_recadre{700,110,center}|image_aplatir{jpg,ffffff}|inserer_attribut{'height',''}|inserer_attribut{'alt',[(#TITRE|attribut_html)]})</a>
+									rel="lightbox">(#LOGO_ARTICLE|image_passe_partout{700,110}|image_recadre{700,110,center}|image_aplatir{jpg,ffffff}|vider_attribut{width}|vider_attribut{height}|inserer_attribut{'height',''}|inserer_attribut{'alt',[(#TITRE|attribut_html)]})</a>
 								</figure>]
 								[<p class="date"><a href="#URL_ARTICLE">(#DATE|affdate_simple)</a></p>]
 								<header class="titraille">

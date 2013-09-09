@@ -9,7 +9,8 @@ $(document).ready(function() {
 		place.date();
 	})
 	place.date();
-	
+	place.logo();
+
 	// bootstrap this
 	$("input.submit").addClass('btn btn-inverse');
 	$(".erreur_message").addClass('alert alert-error');
@@ -46,6 +47,9 @@ var place = {
 		$('.date').each(function(i){
 			$(this).hide();
 		})
+	},
+	logo: function(){
+		$('body.blog figure.icono .spip_logos').css({width:'100%'})
 	}
 	
 	

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Page not found :(</title>
+		[<link rel="stylesheet" href="(#CHEMIN{css/404.css})" charset="utf-8">]
+	</head>
+	<body>
+		<div class="container">
+			<h1>Page not found <span>:(</span></h1>
+			<h2>Error</h2>
+			<p>Sorry, but the page you were trying to view does not exist.</p>
+			<p>It looks like this was the result of either:</p>
+			<ul>
+				<li>a mistyped address</li>
+				<li>an out-of-date link</li>
+			</ul>
+			<h2>Site structure</h2>
+			<BOUCLE_racine(RUBRIQUES){racine}{!id_rubrique = 5}>
+				[<p>(#TITRE|traduire_nom_langue):]
+				<BOUCLE_content(RUBRIQUES){id_parent}{", "}><a href="#URL_RUBRIQUE">#TITRE</a></BOUCLE_content>
+				</ul>
+			</p>
+			</BOUCLE_racine>
+			<script>
+				var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
+			</script>
+			<script src="//linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+		</div>
+	</body>
+</html>

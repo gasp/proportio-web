@@ -2,7 +2,7 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-function formulaires_request_fitting_charger_dist(){
+function formulaires_request_fabrics_charger_dist(){
 	include_spip('inc/texte');
 	$puce = definir_puce();
 	$valeurs = array(
@@ -10,8 +10,10 @@ function formulaires_request_fitting_charger_dist(){
 		'fname_message_auteur'=>'',
 		'lname_message_auteur'=>'',
 		'phone_message_auteur'=>'',
-		'place_message_auteur'=>'',
-		'date_message_auteur' =>'',
+		'address_message_auteur'=>'',
+		'zip_message_auteur'=>'',
+		'city_message_auteur'=>'',
+		'country_message_auteur'=>'',
 		'texte_message_auteur'=>'',
 		'email_message_auteur'=>$GLOBALS['visiteur_session']['email']
 	);
@@ -20,7 +22,7 @@ function formulaires_request_fitting_charger_dist(){
 	return $valeurs;
 }
 
-function formulaires_request_fitting_verifier_dist(){
+function formulaires_request_fabrics_verifier_dist(){
 	$erreurs = array();
 	include_spip('inc/filtres');
 
@@ -54,38 +56,40 @@ function formulaires_request_fitting_verifier_dist(){
 		$erreurs['lname_message_auteur'] = _T('form_too_short');
 
 	// place
-	if (!$place=_request('place_message_auteur'))
-		$erreurs['place_message_auteur'] = _T("info_obligatoire");
+	if (!$place=_request('address_message_auteur'))
+		$erreurs['address_message_auteur'] = _T("info_obligatoire");
 
 	if (!_request('confirmer') AND !count($erreurs))
 		$erreurs['previsu']=' ';
 	return $erreurs;
 }
 
-function formulaires_request_fitting_traiter_dist(){
+function formulaires_request_fabrics_traiter_dist(){
 	
 	$mailto = 'gaspard@gmail.com';
 	$civil = _request('civility_message_auteur');
 	$fname = _request('fname_message_auteur');
 	$lname = _request('lname_message_auteur');
-	$place = _request('place_message_auteur');
-	$date  = _request('date_message_auteur');
+	$address = _request('address_message_auteur');
+	$zip     = _request('zip_message_auteur');
+	$city    = _request('city_message_auteur');
+	$country = _request('country_message_auteur');
 	$email = _request('email_message_auteur');
 	$phone = _request('phone_message_auteur');
 	$line  = "------------------------------------\n";
 
 	$sujet = "[".supprimer_tags(extraire_multi($GLOBALS['meta']['nom_site']))."] "
-		. "Fitting request";
+		. "Fabrics request";
 	$texte =
 		"Good morning,\n"
-		."$civil $fname $lname has just requested a fitting in $place!\n";
+		."$civil $fname $lname has just requested fabrics!\n";
 
-	if($date)
-		$texte .=  "It could take place on $date\n";
 
 	$texte .= " Please contact $fname for fixing details\n"
 		." email : $email\n"
 		." phone : $phone\n"
+		." address : $address\n"
+		."           ($zip) $city - $country"
 		.$line
 		. _request('texte_message_auteur')
 		."\n"

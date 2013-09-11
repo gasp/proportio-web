@@ -25,11 +25,10 @@ body.blog{
 	figure{
 		margin:0;padding:0;
 		&.icono .spip_logos{
-			width:100%
+			width:100%	
 		}
 	}
 
-	
 	.header{
 		height:15%;
 	}
@@ -189,6 +188,30 @@ body.blog{
 	}
 	.explication.saisie_texte_info, .explication.gravatar_info_forum{
 		display:none;
+	}
+
+	// spip styles
+	article .texte{
+		/* Tableaux */
+		table.spip { max-width: 99%; margin-right: auto; margin-left: auto; margin-bottom: 1em; border-collapse: collapse; border-spacing: 0; line-height: normal; }
+		table.spip caption { caption-side: top; /* bottom pas pris en compte par IE */ text-align: center; margin-right: auto; margin-left: auto; font-weight: bold; }
+		table.spip tr.row_first { background: #fff; }
+		table.spip tr.row_odd { background: #f0f0f0; }
+		table.spip tr.row_even { background: #e0e0e0; }
+		table.spip th, table.spip td { padding: 0.20em 0.40em; text-align: left; border: 1px solid #ccc; }
+		table.spip th { vertical-align: bottom; font-weight: bold; }
+		table.spip td { vertical-align: top; }
+		table.spip td.numeric {text-align:right;}
+
+		/* Logos, documents et images */
+		img, .spip_logos { margin: 0; padding: 0; border: 0; }
+		.spip_documents { text-align: center; line-height: normal; }
+		.spip_documents p { margin: 0.10em; padding: 0; }
+		.spip_documents_center { display: block; clear: both; width: 100%; margin: 1em auto; }
+		.spip_documents_left { float: left; margin-right: 15px; margin-bottom: 5px; }
+		.spip_documents_right { float: right; margin-left: 15px; margin-bottom: 5px; }
+		.spip_doc_titre { margin-right: auto; margin-left: auto; font-weight: bold; font-size: 0.90em; }
+		.spip_doc_descriptif { clear: both; margin-right: auto; margin-left: auto; font-size: 0.90em; }
 	}
 
 }

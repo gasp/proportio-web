@@ -1,11 +1,11 @@
-<?php
+<?php // local_en
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// blog
 	'par'=>'by',
 	// forms
-	'form_request_fitting' => 'Request a fitting',
-	'form_request_fabrics' => 'Request a fabric',
-	'form_civility' => 'Civility',
+	'form_request_fitting' => 'request a fitting',
+	'form_request_fabrics' => 'request fabrics',
+	'form_civility' => ' ',
 	'form_fname' => 'First Name',
 	'form_lname' => 'Last Name',
 	'form_place' => 'City, Country',
@@ -21,6 +21,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'form_country' => 'Country',
 	'form_message' => 'Message',
 	'form_message_help' => 'Any special instructions or wishes',
-	'form_too_short' => 'This is too short to be true', // error message
+	'form_too_short' => 'too short to be true', // error message
 );
 ?>

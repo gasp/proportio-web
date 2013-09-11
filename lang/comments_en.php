@@ -1,4 +1,4 @@
-<?php
+<?php //comments_en
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'forum_qui_etes_vous' => 'Tell us who you are',
 	'label_nom' => 'What is your name ?',

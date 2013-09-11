@@ -66,7 +66,7 @@ function formulaires_request_fabrics_verifier_dist(){
 
 function formulaires_request_fabrics_traiter_dist(){
 	
-	$mailto = 'gaspard@gmail.com';
+	$mailto = 'thomas@try-studio.com';
 	$civil = _request('civility_message_auteur');
 	$fname = _request('fname_message_auteur');
 	$lname = _request('lname_message_auteur');

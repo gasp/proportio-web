@@ -23,7 +23,7 @@
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 </head>
-<body>
+<body class="<BOUCLE_body(RUBRIQUES){id_rubrique}{racine}>sommaire</BOUCLE_body>">
 
 
 <div id="menu">
@@ -75,6 +75,7 @@
 	<div class="down"></div>
 </div>
 
+<INCLURE{fond=partials/stats}>
 </body>
 </html>
 </BOUCLE_principale>

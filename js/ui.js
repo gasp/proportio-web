@@ -5,14 +5,6 @@
 //  Created by gaspard on 2013-02-01
 // 
 
-/**
- * slider ok
- * menu ok
- * content stable
- * background stable
- * init stable
- */
-
 var slider = {
 	data: {
 		numberOfSlides: 0
@@ -139,6 +131,19 @@ var content = {
 	},
 	isdown: true,
 	place: function(animate){
+
+		/*
+			hand-made responsive
+		*/
+
+		// hide some stuffs on home page isn't high enough
+		if($('body').hasClass('sommaire')){
+			if($(window).height() < 700)
+				$('.home .pinned figure.icono').hide();
+			else
+				$('.home .pinned figure.icono').show();
+		}
+
 		//place bottom text
 		var height = $(document).height(),
 			width = $(document).width(),
@@ -146,7 +151,7 @@ var content = {
 
 		$content.each(function(){
 			var space = Math.max(height-$(this).height(),30);
-			console.log(this, height,$(this).height(),space)
+//			console.log(this, height,$(this).height(),space)
 			if(width>640){
 				if(animate === true)
 					$(this).hide().css({paddingTop:space}).fadeIn();
@@ -168,10 +173,6 @@ var content = {
 			$('#updown .up, #updown .down').toggle();
 		});
 
-			/*
-				TODO move this to media queries
-			*/
-		
 		if(width>640){
 
 			// reset css if has been modified by <640 version

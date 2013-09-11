@@ -172,3 +172,93 @@ body.blog .explication.saisie_texte_info,
 body.blog .explication.gravatar_info_forum {
   display: none;
 }
+body.blog article .texte {
+  /* Tableaux */
+
+  /* Logos, documents et images */
+
+}
+body.blog article .texte table.spip {
+  max-width: 99%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1em;
+  border-collapse: collapse;
+  border-spacing: 0;
+  line-height: normal;
+}
+body.blog article .texte table.spip caption {
+  caption-side: top;
+  /* bottom pas pris en compte par IE */
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bold;
+}
+body.blog article .texte table.spip tr.row_first {
+  background: #fff;
+}
+body.blog article .texte table.spip tr.row_odd {
+  background: #f0f0f0;
+}
+body.blog article .texte table.spip tr.row_even {
+  background: #e0e0e0;
+}
+body.blog article .texte table.spip th,
+body.blog article .texte table.spip td {
+  padding: 0.20em 0.40em;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+body.blog article .texte table.spip th {
+  vertical-align: bottom;
+  font-weight: bold;
+}
+body.blog article .texte table.spip td {
+  vertical-align: top;
+}
+body.blog article .texte table.spip td.numeric {
+  text-align: right;
+}
+body.blog article .texte img,
+body.blog article .texte .spip_logos {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+body.blog article .texte .spip_documents {
+  text-align: center;
+  line-height: normal;
+}
+body.blog article .texte .spip_documents p {
+  margin: 0.10em;
+  padding: 0;
+}
+body.blog article .texte .spip_documents_center {
+  display: block;
+  clear: both;
+  width: 100%;
+  margin: 1em auto;
+}
+body.blog article .texte .spip_documents_left {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
+body.blog article .texte .spip_documents_right {
+  float: right;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+body.blog article .texte .spip_doc_titre {
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: bold;
+  font-size: 0.90em;
+}
+body.blog article .texte .spip_doc_descriptif {
+  clear: both;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 0.90em;
+}
